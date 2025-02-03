@@ -10,7 +10,7 @@ import {
   Sidebar,
   WhiteButton,
 } from "../components";
-import { AiOutlineExport } from "react-icons/ai";
+// import { AiOutlineExport } from "react-icons/ai";
 
 const Reviews = () => {
   return (

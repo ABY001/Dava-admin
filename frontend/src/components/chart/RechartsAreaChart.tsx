@@ -5,7 +5,7 @@ import {
     XAxis,
     YAxis,
     CartesianGrid,
-    Tooltip,
+    // Tooltip,
     Legend,
   } from 'recharts';
   
@@ -55,7 +55,7 @@ import {
           <XAxis dataKey="name" />
           <CartesianGrid strokeDasharray="5 5" />
   
-          <Tooltip content={<CustomTooltip />} />
+          {/* <Tooltip content={<CustomTooltip />} /> */}
           <Legend />
   
           <Area
@@ -78,22 +78,22 @@ import {
     );
   };
   
-  const CustomTooltip = ({ active, payload, label }) => {
-    if (active && payload && payload.length) {
-      return (
-        <div className="p-4 bg-slate-900 flex flex-col gap-4 rounded-md">
-          <p className="text-medium text-lg">{label}</p>
-          <p className="text-sm text-blue-400">
-            Product 1:
-            <span className="ml-2">${payload[0].value}</span>
-          </p>
-          <p className="text-sm text-indigo-400">
-            Product 2:
-            <span className="ml-2">${payload[1].value}</span>
-          </p>
-        </div>
-      );
-    }
-  };
+  // const CustomTooltip = ({ active, payload, label }) => {
+  //   if (active && payload && payload.length) {
+  //     return (
+  //       <div className="p-4 bg-slate-900 flex flex-col gap-4 rounded-md">
+  //         <p className="text-medium text-lg">{label}</p>
+  //         <p className="text-sm text-blue-400">
+  //           Product 1:
+  //           <span className="ml-2">${payload[0].value}</span>
+  //         </p>
+  //         <p className="text-sm text-indigo-400">
+  //           Product 2:
+  //           <span className="ml-2">${payload[1].value}</span>
+  //         </p>
+  //       </div>
+  //     );
+  //   }
+  // };
   
   export default RechartsAreaChart;

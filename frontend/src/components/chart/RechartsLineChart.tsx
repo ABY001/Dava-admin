@@ -6,7 +6,7 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip,
+  // Tooltip,
   Legend,
   ResponsiveContainer,
 } from 'recharts';
@@ -58,7 +58,7 @@ const RechartsLineChart = () => {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis />
-        <Tooltip content={<CustomTooltip />} />
+        {/* <Tooltip content={<CustomTooltip />} /> */}
         <Legend />
         <Line type="monotone" dataKey="revenue" stroke="#3b82f6" />
         <Line type="monotone" dataKey="profit" stroke="#8b5cf6" />
@@ -69,20 +69,20 @@ const RechartsLineChart = () => {
 
 export default RechartsLineChart;
 
-const CustomTooltip = ({ active, payload, label }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="p-4 bg-slate-900 flex flex-col gap-4 rounded-md">
-        <p className="text-medium text-lg">{label}</p>
-        <p className="text-sm text-blue-400">
-          Revenue:
-          <span className="ml-2">${payload[0].value}</span>
-        </p>
-        <p className="text-sm text-indigo-400">
-          Profit:
-          <span className="ml-2">${payload[1].value}</span>
-        </p>
-      </div>
-    );
-  }
-};
+// const CustomTooltip = ({ active, payload, label }) => {
+//   if (active && payload && payload.length) {
+//     return (
+//       <div className="p-4 bg-slate-900 flex flex-col gap-4 rounded-md">
+//         <p className="text-medium text-lg">{label}</p>
+//         <p className="text-sm text-blue-400">
+//           Revenue:
+//           <span className="ml-2">${payload[0].value}</span>
+//         </p>
+//         <p className="text-sm text-indigo-400">
+//           Profit:
+//           <span className="ml-2">${payload[1].value}</span>
+//         </p>
+//       </div>
+//     );
+//   }
+// };

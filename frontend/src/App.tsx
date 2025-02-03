@@ -13,8 +13,6 @@ import {
   EditUser,
   HelpDesk,
   HomeLayout,
-  Landing,
-  LandingV2,
   Login,
   Notifications,
   Orders,

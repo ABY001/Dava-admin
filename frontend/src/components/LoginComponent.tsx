@@ -8,7 +8,7 @@
 // Output: Login component that contains input fields for email and password, and buttons for login with Google and GitHub
 // *********************
 
-import { FaReact } from "react-icons/fa6";
+// import { FaReact } from "react-icons/fa6";
 import {
   InputWithLabel,
   SimpleInput,

@@ -8,9 +8,9 @@
 // Output: The header component
 // *********************
 
-import { FaReact } from "react-icons/fa6";
+// import { FaReact } from "react-icons/fa6";
 import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
-import { HiOutlineBell } from "react-icons/hi";
+// import { HiOutlineBell } from "react-icons/hi";
 import { HiOutlineMenu } from "react-icons/hi";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { setSidebar } from "../features/dashboard/dashboardSlice";

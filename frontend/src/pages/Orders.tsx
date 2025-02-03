@@ -2,7 +2,7 @@
 import { OrderTable, Pagination, RowsPerPage, Sidebar } from "../components";
 import { HiOutlinePlus } from "react-icons/hi";
 import { HiOutlineChevronRight } from "react-icons/hi";
-import { AiOutlineExport } from "react-icons/ai";
+// import { AiOutlineExport } from "react-icons/ai";
 import { HiOutlineSearch } from "react-icons/hi";
 import { Link } from "react-router-dom";
 

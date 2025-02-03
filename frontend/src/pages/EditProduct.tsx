@@ -1,7 +1,7 @@
 import { ImageUpload, InputWithLabel, Sidebar } from "../components";
 import { HiOutlineSave } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import { AiOutlineSave } from "react-icons/ai";
+// import { AiOutlineSave } from "react-icons/ai";
 import SimpleInput from "../components/SimpleInput";
 import TextAreaInput from "../components/TextAreaInput";
 import SelectInput from "../components/SelectInput";
