@@ -31,9 +31,6 @@ const ProductTable = () => {
             Product
           </th>
           <th scope="col" className="py-2 pl-0 pr-8 font-semibold table-cell">
-            SKU
-          </th>
-          <th scope="col" className="py-2 pl-0 pr-8 font-semibold table-cell">
             Status
           </th>
           <th
@@ -56,19 +53,12 @@ const ProductTable = () => {
             <td className="py-4 pl-4 pr-8 sm:pl-6 lg:pl-8">
               <div className="flex items-center gap-x-4">
                 <img
-                  src={item.product.imageUrl}
+                  src={item.imageUrl}
                   alt=""
                   className="h-8 w-8 rounded-full bg-gray-800"
                 />
                 <div className="truncate text-sm font-medium leading-6 dark:text-whiteSecondary text-blackPrimary">
-                  {item.product.name}
-                </div>
-              </div>
-            </td>
-            <td className="py-4 pl-0 pr-4 table-cell pr-8">
-              <div className="flex gap-x-3">
-                <div className="font-mono text-sm leading-6 dark:text-whiteSecondary text-blackPrimary">
-                  {item.sku}
+                  {item.name}
                 </div>
               </div>
             </td>

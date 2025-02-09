@@ -1,29 +1,18 @@
 import { ImageUpload, InputWithLabel, Sidebar } from "../components";
 import { HiOutlineSave } from "react-icons/hi";
 import { Link } from "react-router-dom";
-// import { AiOutlineSave } from "react-icons/ai";
 import SimpleInput from "../components/SimpleInput";
-import TextAreaInput from "../components/TextAreaInput";
 import SelectInput from "../components/SelectInput";
-import { selectList, stockStatusList } from "../utils/data";
+import { stockStatusList } from "../utils/data";
 import { useState } from "react";
 
 const EditProduct = () => {
   const [inputObject, setInputObject] = useState({
-    title: "Samsung Galaxy Tab A7 Lite",
-    description: "This is demo description for Samsung Galaxy Tab A7 Lite.",
-    category: selectList[0].value,
-    basePrice: "$100",
-    discountPrice: "$80",
+    name: "Samsung Galaxy Tab A7 Lite",
+    price: "$80",
     stock: "50",
-    sku: "SK-2323-2323",
     stockStatus: stockStatusList[0].value,
-    weight: "500g",
-    length: "600cm",
-    width: "600cm",
-    height: "400cm",
-    metaTitle: "Samsung Galaxy Tab A7 Lite - Demo Title",
-    metaDescription: "Samsung Galaxy Tab A7 Lite - Demo Description",
+    amazonLink: "#"
   });
 
 
@@ -39,7 +28,7 @@ const EditProduct = () => {
               </h2>
             </div>
             <div className="flex gap-x-2 max-[370px]:flex-col max-[370px]:gap-2 max-[370px]:items-center">
-           
+
               <Link
                 to="/products/add-product"
                 className="dark:bg-whiteSecondary bg-blackPrimary w-48 py-2 text-lg dark:hover:bg-white hover:bg-blackSecondary duration-200 flex items-center justify-center gap-x-2"
@@ -61,41 +50,13 @@ const EditProduct = () => {
               </h3>
 
               <div className="mt-4 flex flex-col gap-5">
-                <InputWithLabel label="Title">
+                <InputWithLabel label="Name">
                   <SimpleInput
                     type="text"
-                    placeholder="Enter a product title..."
-                    value={inputObject.title}
+                    placeholder="Enter a product name..."
+                    value={inputObject.name}
                     onChange={(e) =>
-                      setInputObject({ ...inputObject, title: e.target.value })
-                    }
-                  />
-                </InputWithLabel>
-
-                <InputWithLabel label="Description">
-                  <TextAreaInput
-                    placeholder="Enter a product description..."
-                    rows={4}
-                    cols={50}
-                    value={inputObject.description}
-                    onChange={(e) =>
-                      setInputObject({
-                        ...inputObject,
-                        description: e.target.value,
-                      })
-                    }
-                  />
-                </InputWithLabel>
-
-                <InputWithLabel label="Category">
-                  <SelectInput
-                    selectList={selectList}
-                    value={inputObject.category}
-                    onChange={(e) =>
-                      setInputObject({
-                        ...inputObject,
-                        category: e.target.value,
-                      })
+                      setInputObject({ ...inputObject, name: e.target.value })
                     }
                   />
                 </InputWithLabel>
@@ -107,36 +68,19 @@ const EditProduct = () => {
 
               <div className="mt-4 flex flex-col gap-5">
                 <div className="grid grid-cols-2 gap-x-5 max-[500px]:grid-cols-1 max-[500px]:gap-x-0 max-[500px]:gap-y-5">
-                  <InputWithLabel label="Base pricing">
+                  <InputWithLabel label="Price">
                     <SimpleInput
                       type="text"
-                      placeholder="Enter a product base pricing..."
-                      value={inputObject.basePrice}
+                      placeholder="Enter a price..."
+                      value={inputObject.price}
                       onChange={(e) =>
                         setInputObject({
                           ...inputObject,
-                          basePrice: e.target.value,
+                          price: e.target.value,
                         })
                       }
                     />
                   </InputWithLabel>
-
-                  <InputWithLabel label="Price with dicount">
-                    <SimpleInput
-                      type="text"
-                      placeholder="Enter a price with discount..."
-                      value={inputObject.discountPrice}
-                      onChange={(e) =>
-                        setInputObject({
-                          ...inputObject,
-                          discountPrice: e.target.value,
-                        })
-                      }
-                    />
-                  </InputWithLabel>
-                </div>
-
-                <div className="grid grid-cols-2 gap-x-5 max-[500px]:grid-cols-1 max-[500px]:gap-x-0 max-[500px]:gap-y-5">
                   <InputWithLabel label="Stock">
                     <SimpleInput
                       type="text"
@@ -150,21 +94,8 @@ const EditProduct = () => {
                       }
                     />
                   </InputWithLabel>
-
-                  <InputWithLabel label="SKU">
-                    <SimpleInput
-                      type="text"
-                      placeholder="Enter a product SKU..."
-                      value={inputObject.sku}
-                      onChange={(e) =>
-                        setInputObject({
-                          ...inputObject,
-                          sku: e.target.value,
-                        })
-                      }
-                    />
-                  </InputWithLabel>
                 </div>
+
                 <InputWithLabel label="Stock status">
                   <SelectInput
                     selectList={stockStatusList}
@@ -180,104 +111,23 @@ const EditProduct = () => {
               </div>
 
               <h3 className="text-2xl font-bold leading-7 dark:text-whiteSecondary text-blackPrimary mt-16">
-                Delivery
+                Product Order Link
               </h3>
 
               <div className="mt-4 flex flex-col gap-5">
-                <div className="grid grid-cols-2 gap-x-5 gap-y-5 max-[500px]:grid-cols-1 max-[500px]:gap-x-0 max-[500px]:gap-y-5">
-                  <InputWithLabel label="Weight (kg)">
-                    <SimpleInput
-                      type="text"
-                      placeholder="Enter a product weight..."
-                      value={inputObject.weight}
-                      onChange={(e) => {
-                        setInputObject({
-                          ...inputObject,
-                          weight: e.target.value,
-                        });
-                      }}
-                    />
-                  </InputWithLabel>
-                  <InputWithLabel label="Length (cm)">
-                    <SimpleInput
-                      type="text"
-                      placeholder="Enter a product length..."
-                      value={inputObject.length}
-                      onChange={(e) => {
-                        setInputObject({
-                          ...inputObject,
-                          length: e.target.value,
-                        });
-                      }}
-                    />
-                  </InputWithLabel>
-                  <InputWithLabel label="Width (cm)">
-                    <SimpleInput
-                      type="text"
-                      placeholder="Enter a product width..."
-                      value={inputObject.width}
-                      onChange={(e) => {
-                        setInputObject({
-                          ...inputObject,
-                          width: e.target.value,
-                        });
-                      }}
-                    />
-                  </InputWithLabel>
-                  <InputWithLabel label="Height (cm)">
-                    <SimpleInput
-                      type="text"
-                      placeholder="Enter a product height..."
-                      value={inputObject.height}
-                      onChange={(e) => {
-                        setInputObject({
-                          ...inputObject,
-                          height: e.target.value,
-                        });
-                      }}
-                    />
-                  </InputWithLabel>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold leading-7 dark:text-whiteSecondary text-blackPrimary mt-16">
-                  SEO
-                </h3>
-
-                <div className="mt-4 flex flex-col gap-5">
-                  <InputWithLabel label="Meta title">
-                    <SimpleInput
-                      type="text"
-                      placeholder="Enter a meta title..."
-                      value={inputObject.metaTitle}
-                        onChange={(e) =>
-                            setInputObject({
-                            ...inputObject,
-                            metaTitle: e.target.value,
-                            })
-                        }
-                    />
-                  </InputWithLabel>
-
-                  <InputWithLabel label="Meta description">
-                    <TextAreaInput
-                      placeholder="Enter a meta description..."
-                      rows={4}
-                      cols={50}
-                      value={inputObject.metaDescription}
-                        onChange={(e) =>
-                            setInputObject({
-                            ...inputObject,
-                            metaDescription: e.target.value,
-                            })
-                        }
-                    />
-                  </InputWithLabel>
-                </div>
+                <InputWithLabel label="Name">
+                  <SimpleInput
+                    type="text"
+                    placeholder="Enter the amazon order link..."
+                    value={inputObject.amazonLink}
+                    onChange={(e) =>
+                      setInputObject({ ...inputObject, name: e.target.value })
+                    }
+                  />
+                </InputWithLabel>
               </div>
             </div>
 
-            
 
             {/* right div */}
             <div>
@@ -287,9 +137,9 @@ const EditProduct = () => {
 
               <ImageUpload />
               <div className="flex justify-center gap-x-2 mt-5 flex-wrap">
-                <img src='/src/assets/tablet (1).jpg' alt='' className="w-36 h-32"/>
+                <img src='/src/assets/tablet (1).jpg' alt='' className="w-36 h-32" />
                 <img src="/src/assets/tablet (2).jpg" alt="" className="w-36 h-32" />
-                <img src='/src/assets/tablet (3).jpg' alt='' className="w-36 h-32"/>
+                <img src='/src/assets/tablet (3).jpg' alt='' className="w-36 h-32" />
                 <img src="/src/assets/tablet (4).jpg" alt="" className="w-36 h-32" />
               </div>
             </div>

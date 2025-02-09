@@ -1,7 +1,5 @@
-// import { AiOutlineSave } from "react-icons/ai";
 import { HiOutlineSave } from "react-icons/hi";
 import {
-  ImageUpload,
   InputWithLabel,
   Sidebar,
   SimpleInput,
@@ -14,7 +12,6 @@ import { useEffect, useState } from "react";
 const EditUser = () => {
   const [inputObject, setInputObject] = useState({
     name: "Brent",
-    lastname: "Fesi",
     email: "brentfesi@email.com",
     password: "brentfesi123",
     confirmPassword: "brentfesi123",
@@ -51,7 +48,7 @@ const EditUser = () => {
           </div>
 
           {/* Add Product section here  */}
-          <div className="px-4 sm:px-6 lg:px-8 pb-8 pt-8 grid grid-cols-2 gap-x-10 max-xl:grid-cols-1 max-xl:gap-y-10">
+          <div className="px-4 sm:px-6 lg:px-8 pb-8 pt-8 grid grid-cols-1 gap-x-10 max-xl:grid-cols-1 max-xl:gap-y-10">
             {/* left div */}
             <div>
               <h3 className="text-2xl font-bold leading-7 dark:text-whiteSecondary text-blackPrimary">
@@ -66,20 +63,6 @@ const EditUser = () => {
                     value={inputObject.name}
                     onChange={(e) =>
                       setInputObject({ ...inputObject, name: e.target.value })
-                    }
-                  />
-                </InputWithLabel>
-
-                <InputWithLabel label="Lastname">
-                  <SimpleInput
-                    type="text"
-                    placeholder="Enter a lastname..."
-                    value={inputObject.lastname}
-                    onChange={(e) =>
-                      setInputObject({
-                        ...inputObject,
-                        lastname: e.target.value,
-                      })
                     }
                   />
                 </InputWithLabel>
@@ -133,23 +116,6 @@ const EditUser = () => {
                   />
                 </InputWithLabel>
               </div>
-            </div>
-
-            {/* right div */}
-            <div>
-              <h3 className="text-2xl font-bold leading-7 dark:text-whiteSecondary text-blackPrimary">
-                Upload user image
-              </h3>
-              <ImageUpload />
-
-              <div className="flex justify-center gap-x-2 mt-5 flex-wrap">
-                <img
-                  src="/src/assets/random user 1.jpg"
-                  alt=""
-                  className="w-36 h-32"
-                />
-              </div>
-
             </div>
           </div>
         </div>

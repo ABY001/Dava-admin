@@ -37,12 +37,12 @@ export const stockStatusList = [
 
 export const roles = [
   {
-    label: "Admin",
-    value: "admin",
-  },
-  {
     label: "User",
     value: "user",
+  },
+  {
+    label: "Admin",
+    value: "admin",
   },
 ];
 
@@ -343,140 +343,65 @@ export const orderAdminItems = [
 
 export const productAdminItems = [
   {
-    product: {
-      name: "Samsung Galaxy S21 Ultra",
-      imageUrl: "/src/assets/phone 1.jpg",
-    },
-    sku: "SK-2323-2323",
+    name: "Samsung Galaxy S21 Ultra",
+    imageUrl: "/src/assets/phone 1.jpg",
     status: "In stock",
     price: "$1000",
   },
   {
-    product: {
-      name: "Iphone 13 Pro Max",
-      imageUrl: "/src/assets/phone 2.jpg",
-    },
-    sku: "SK-2323-2323",
+    name: "Iphone 13 Pro Max",
+    imageUrl: "/src/assets/phone 2.jpg",
     status: "In stock",
     price: "$1200",
   },
   {
-    product: {
-      name: "Ipod Touch 8th Gen",
-      imageUrl: "/src/assets/phone 3.jpg",
-    },
-    sku: "SK-2323-2323",
+    name: "Ipod Touch 8th Gen",
+    imageUrl: "/src/assets/phone 3.jpg",
     status: "Out of stock",
     price: "$300",
   },
   {
-    product: {
-      name: "Samsung A52s 5G",
-      imageUrl: "/src/assets/phone 4.jpg",
-    },
-    sku: "SK-2323-2323",
+    name: "Samsung A52s 5G",
+    imageUrl: "/src/assets/phone 4.jpg",
     status: "In stock",
     price: "$500",
   },
   {
-    product: {
-      name: "Samsung Galaxy A12",
-      imageUrl: "/src/assets/phone 5.jpg",
-    },
-    sku: "SK-2323-2323",
+    name: "Samsung Galaxy A12",
+    imageUrl: "/src/assets/phone 5.jpg",
     status: "In stock",
     price: "$200",
   },
   {
-    product: {
-      name: "Samsung Galaxy A22 5G",
-      imageUrl: "/src/assets/phone 6.jpg",
-    },
-    sku: "SK-2323-2323",
+    name: "Samsung Galaxy A22 5G",
+    imageUrl: "/src/assets/phone 6.jpg",
     status: "In stock",
     price: "$300",
   },
   {
-    product: {
-      name: "Alcatel 1S 2021",
-      imageUrl: "/src/assets/phone 7.jpg",
-    },
-    sku: "SK-2323-2323",
+    name: "Alcatel 1S 2021",
+    imageUrl: "/src/assets/phone 7.jpg",
     status: "In stock",
     price: "$100",
   },
   {
-    product: {
-      name: "Huaewi Y9a",
-      imageUrl: "/src/assets/phone 8.jpg",
-    },
-    sku: "SK-2323-2323",
+    name: "Huaewi Y9a",
+    imageUrl: "/src/assets/phone 8.jpg",
     status: "In stock",
     price: "$250",
   },
   {
-    product: {
-      name: "Samsung Galaxy Tab A7 Lite",
-      imageUrl: "/src/assets/tablet (1).jpg",
-    },
-    sku: "SK-2323-2323",
+    name: "Samsung Galaxy Tab A7 Lite",
+    imageUrl: "/src/assets/tablet (1).jpg",
     status: "Out of stock",
     price: "$150",
   },
   {
-    product: {
-      name: "Tab S7 FE 5G",
-      imageUrl: "/src/assets/tablet (2).jpg",
-    },
-    sku: "SK-2323-2323",
+    name: "Tab S7 FE 5G",
+    imageUrl: "/src/assets/tablet (2).jpg",
     status: "In stock",
     price: "$400",
-  },
-  {
-    product: {
-      name: "Tab B10",
-      imageUrl: "/src/assets/tablet (3).jpg",
-    },
-    sku: "SK-2323-2323",
-    status: "In stock",
-    price: "$200",
-  },
-  {
-    product: {
-      name: "Tab A5 8.0",
-      imageUrl: "/src/assets/tablet (4).jpg",
-    },
-    sku: "SK-2323-2323",
-    status: "In stock",
-    price: "$100",
-  },
-  {
-    product: {
-      name: "Alcatel 1T 7",
-      imageUrl: "/src/assets/tablet (5).jpg",
-    },
-    sku: "SK-2323-2323",
-    status: "In stock",
-    price: "$50",
-  },
-  {
-    product: {
-      name: "Alcatel 3T 10",
-      imageUrl: "/src/assets/tablet (6).jpg",
-    },
-    sku: "SK-2323-2323",
-    status: "In stock",
-    price: "$150",
-  },
-  {
-    product: {
-      name: "Alcatel 1T 10",
-      imageUrl: "/src/assets/tablet (7).jpg",
-    },
-    sku: "SK-2323-2323",
-    status: "In stock",
-    price: "$100",
-  },
+  }
 ];
 
 export const reviewsAdminItems = [
@@ -564,103 +489,31 @@ export const reviewsAdminItems = [
 
 export const userAdminItems = [
   {
-    user: {
-      name: "Brent Fesi",
-      imageUrl: "/src/assets/random user 1.jpg",
-    },
+    name: "Brent Fesi",
     email: "brentfesi@gmail.com",
     role: "user",
     lastLogin:
       new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
   },
   {
-    user: {
-      name: "Benito Nickley",
-      imageUrl: "/src/assets/random user 2.jpg",
-    },
+    name: "Benito Nickley",
     email: "benitonickley@gmail.com",
     role: "admin",
     lastLogin:
       new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
   },
   {
-    user: {
-      name: "Lesley Ghouse",
-      imageUrl: "/src/assets/random user 3.jpg",
-    },
-    email: "lesleyghouse@gmail.com",
+    name: "Brent Fesi",
+    email: "brentfesi@gmail.com",
     role: "user",
     lastLogin:
       new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
   },
   {
-    user: {
-      name: "Cherie Kros",
-      imageUrl: "/src/assets/random user 4.jpg",
-    },
-    email: "cheriekros@hotmail.com",
-    role: "user",
-    lastLogin:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Ivory Volkmar",
-      imageUrl: "/src/assets/random user 5.jpg",
-    },
-    email: "ivoryvolkmar@gmail.com",
-    role: "user",
-    lastLogin:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Assunta Aimes",
-      imageUrl: "/src/assets/random user 6.jpg",
-    },
-    email: "assuntaimes@gmail.com",
-    role: "user",
-    lastLogin:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Pearle Yousef",
-      imageUrl: "/src/assets/random user 7.jpg",
-    },
-    email: "pearleyousef@gmail.com",
+    name: "Benito Nickley",
+    email: "benitonickley@gmail.com",
     role: "admin",
     lastLogin:
       new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
   },
-  {
-    user: {
-      name: "Latoyia Fiscus",
-      imageUrl: "/src/assets/random user 8.jpg",
-    },
-    email: "latoyiafiscus@gmail.com",
-    role: "user",
-    lastLogin:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Siu Manak",
-      imageUrl: "/src/assets/random user 9.jpg",
-    },
-    email: "siumanak@gmail.com",
-    role: "user",
-    lastLogin:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Cruz Arciniegas",
-      imageUrl: "/src/assets/random user 10.jpg",
-    },
-    email: "cruzarciniegas",
-    role: "user",
-    lastLogin:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  }
 ];

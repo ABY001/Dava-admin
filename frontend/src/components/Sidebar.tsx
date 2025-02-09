@@ -87,7 +87,7 @@ const Sidebar = () => {
             <HiOutlineTag className="text-xl" />
             <span className="text-lg">Categories</span>
           </NavLink> */}
-          <NavLink
+          {/* <NavLink
             to="/orders"
             className={(isActiveObj) =>
               isActiveObj.isActive ? navActiveClass : navInactiveClass
@@ -95,7 +95,7 @@ const Sidebar = () => {
           >
             <HiOutlineTruck className="text-xl" />
             <span className="text-lg">Orders</span>
-          </NavLink>
+          </NavLink> */}
           <NavLink
             to="/users"
             className={(isActiveObj) =>

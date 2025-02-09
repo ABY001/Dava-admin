@@ -1,7 +1,5 @@
-// import { AiOutlineSave } from "react-icons/ai";
 import { HiOutlineSave } from "react-icons/hi";
 import {
-  ImageUpload,
   InputWithLabel,
   Sidebar,
   SimpleInput,
@@ -23,7 +21,7 @@ const CreateUser = () => {
               </h2>
             </div>
             <div className="flex gap-x-2 max-[370px]:flex-col max-[370px]:gap-2 max-[370px]:items-center">
-             
+
               <WhiteButton
                 link="/users/create-user"
                 textSize="lg"
@@ -37,7 +35,7 @@ const CreateUser = () => {
           </div>
 
           {/* Add Product section here  */}
-          <div className="px-4 sm:px-6 lg:px-8 pb-8 pt-8 grid grid-cols-2 gap-x-10 max-xl:grid-cols-1 max-xl:gap-y-10">
+          <div className="px-4 sm:px-6 lg:px-8 pb-8 pt-8 grid grid-cols-1 gap-x-10 max-xl:grid-cols-1 max-xl:gap-y-10">
             {/* left div */}
             <div>
               <h3 className="text-2xl font-bold leading-7 dark:text-whiteSecondary text-blackPrimary">
@@ -49,13 +47,6 @@ const CreateUser = () => {
                   <SimpleInput
                     type="text"
                     placeholder="Enter a name..."
-                  />
-                </InputWithLabel>
-
-                <InputWithLabel label="Lastname">
-                  <SimpleInput
-                    type="text"
-                    placeholder="Enter a lastname..."
                   />
                 </InputWithLabel>
 
@@ -84,14 +75,6 @@ const CreateUser = () => {
                   <SelectInput selectList={roles} />
                 </InputWithLabel>
               </div>
-            </div>
-
-            {/* right div */}
-            <div>
-              <h3 className="text-2xl font-bold leading-7 dark:text-whiteSecondary text-blackPrimary">
-                Upload user image
-              </h3>
-              <ImageUpload />
             </div>
           </div>
         </div>
