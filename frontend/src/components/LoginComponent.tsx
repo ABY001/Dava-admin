@@ -7,6 +7,7 @@ import {
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa6";
 import { useState } from "react";
+import logo from "/src/assets/Dava-logo.webp";
 
 const LoginComponent = () => {
   const [email, setEmail] = useState("john@email.com");
@@ -14,7 +15,7 @@ const LoginComponent = () => {
   return (
     <div className="w-[500px] h-[750px] dark:bg-gray-900 bg-white flex flex-col justify-between items-center py-10 max-sm:w-[400px] max-[420px]:w-[320px] max-sm:h-[750px]">
       <div className="flex flex-col items-center gap-10 w-full px-6">
-        <img src="/src/assets/Dava-logo.webp" className="w-[8rem]"/>
+        <img src={logo} className="w-[8rem]"/>
         {/* <FaReact className="text-5xl dark:text-whiteSecondary text-blackPrimary hover:rotate-180 hover:duration-1000 hover:ease-in-out cursor-pointer max-sm:text-4xl" /> */}
         {/* <h2 className="text-2xl dark:text-whiteSecondary text-blackPrimary font-medium max-sm:text-xl">
           Welcome to the dashboard!

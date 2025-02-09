@@ -5,6 +5,10 @@ import SimpleInput from "../components/SimpleInput";
 import SelectInput from "../components/SelectInput";
 import { stockStatusList } from "../utils/data";
 import { useState } from "react";
+import tab1 from "/src/assets/tablet (1).jpg";
+import tab2 from "/src/assets/tablet (2).jpg";
+import tab3 from "/src/assets/tablet (3).jpg";
+import tab4 from "/src/assets/tablet (4).jpg";
 
 const EditProduct = () => {
   const [inputObject, setInputObject] = useState({
@@ -137,10 +141,10 @@ const EditProduct = () => {
 
               <ImageUpload />
               <div className="flex justify-center gap-x-2 mt-5 flex-wrap">
-                <img src='/src/assets/tablet (1).jpg' alt='' className="w-36 h-32" />
-                <img src="/src/assets/tablet (2).jpg" alt="" className="w-36 h-32" />
-                <img src='/src/assets/tablet (3).jpg' alt='' className="w-36 h-32" />
-                <img src="/src/assets/tablet (4).jpg" alt="" className="w-36 h-32" />
+                <img src={tab1} alt='' className="w-36 h-32" />
+                <img src={tab2} alt="" className="w-36 h-32" />
+                <img src={tab3} alt='' className="w-36 h-32" />
+                <img src={tab4} alt="" className="w-36 h-32" />
               </div>
             </div>
           </div>

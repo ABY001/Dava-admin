@@ -8,6 +8,9 @@ import {
   WhiteButton,
 } from "../components";
 import { useState } from "react";
+import tab1 from "/src/assets/tablet (1).jpg";
+import tab2 from "/src/assets/tablet (2).jpg";
+import tab3 from "/src/assets/tablet (3).jpg";
 
 const EditOrder = () => {
 
@@ -172,21 +175,21 @@ const EditOrder = () => {
                   <div className="mt-4 flex flex-col gap-5 max-[450px]:items-start">
                     <div className="flex justify-between items-center max-[450px]:flex-col">
                       <div className="flex items-center gap-3 max-[450px]:flex-col">
-                      <img src="/src/assets/tablet (1).jpg" alt="product" className="w-12 h-12" />
+                      <img src={tab1} alt="product" className="w-12 h-12" />
                       <span className="dark:text-whiteSecondary text-blackPrimary">Samsung Galaxy Tab 7</span>
                       </div>
                       <span className="dark:text-whiteSecondary text-blackPrimary">Quantity: 2</span>
                     </div>
                     <div className="flex justify-between items-center max-[450px]:flex-col">
                       <div className="flex items-center gap-3  max-[450px]:flex-col">
-                      <img src="/src/assets/tablet (2).jpg" alt="product" className="w-12 h-12" />
+                      <img src={tab2} alt="product" className="w-12 h-12" />
                       <span className="dark:text-whiteSecondary text-blackPrimary">Samsung Galaxy Tab 8</span>
                       </div>
                       <span className="dark:text-whiteSecondary text-blackPrimary">Quantity: 1</span>
                     </div>
                     <div className="flex justify-between items-center max-[450px]:flex-col">
                       <div className="flex items-center gap-3  max-[450px]:flex-col">
-                      <img src="/src/assets/tablet (3).jpg" alt="product" className="w-12 h-12" />
+                      <img src={tab3} alt="product" className="w-12 h-12" />
                       <span className="dark:text-whiteSecondary text-blackPrimary">Samsung Galaxy Tab 9</span>
                       </div>
                       <span className="dark:text-whiteSecondary text-blackPrimary">Quantity: 1</span>
