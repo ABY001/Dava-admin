@@ -1,13 +1,12 @@
-
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import authRoutes from "./routes/authRoutes";
-import productRoutes from "./routes/productRoutes";
-import orderRoutes from "./routes/orderRoutes";
-import userRoutes from "./routes/userRoutes";
-import { errorHandler } from "./utils/errorHandler";
+import authRoutes from "./routes/authRoutes.js";
+import productRoutes from "./routes/productRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+import { errorHandler } from "./utils/errorHandler.js";
 
 dotenv.config();
 const app = express();
