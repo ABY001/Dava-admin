@@ -1,7 +1,7 @@
 import { HiLogin, HiUserGroup } from "react-icons/hi";
 import { HiOutlineDevicePhoneMobile } from "react-icons/hi2";
 // import { HiOutlineTag } from "react-icons/hi";
-import { HiOutlineTruck } from "react-icons/hi";
+// import { HiOutlineTruck } from "react-icons/hi";
 // import { HiOutlineStar } from "react-icons/hi";
 // import { HiOutlineInformationCircle } from "react-icons/hi";
 // import { HiOutlineChat } from "react-icons/hi";
