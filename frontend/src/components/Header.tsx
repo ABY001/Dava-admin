@@ -7,6 +7,7 @@ import { setSidebar } from "../features/dashboard/dashboardSlice";
 import { Link } from "react-router-dom";
 import SearchInput from "./SearchInput";
 import { toggleDarkMode } from "../features/darkMode/darkModeSlice";
+import logo from "/src/assets/Dava-logo.webp";
 
 const Header = () => {
   const dispatch = useAppDispatch();
@@ -22,7 +23,7 @@ const Header = () => {
         <Link to="/">
           {/* <FaReact className="text-4xl dark:text-whiteSecondary text-blackPrimary hover:rotate-180 hover:duration-1000 hover:ease-in-out cursor-pointer" /> */}
 
-        <img src="/src/assets/Dava-logo.webp" className="w-[5rem] cursor-pointer"/>
+        <img src={logo} className="w-[5rem] cursor-pointer"/>
         </Link>
         <SearchInput />
         <div className="flex gap-4 items-center max-xl:justify-center">
