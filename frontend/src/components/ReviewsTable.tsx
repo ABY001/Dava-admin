@@ -1,13 +1,3 @@
-// *********************
-// Role of the component: Reviews table component that displays the reviews in a table
-// Name of the component: ReviewsTable.tsx
-// Developer: Aleksandar Kuzmanovic
-// Version: 1.0
-// Component call: <ReviewsTable />
-// Input parameters: no input parameters
-// Output: ReviewsTable component that displays the reviews in a table
-// *********************
-
 import { nanoid } from "nanoid";
 import { Link } from "react-router-dom";
 import { HiOutlinePencil } from "react-icons/hi";

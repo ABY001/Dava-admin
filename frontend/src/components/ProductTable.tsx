@@ -1,13 +1,3 @@
-// *********************
-// Role of the component: ProductTable component that displays the products in a table
-// Name of the component: ProductTable.tsx
-// Developer: Aleksandar Kuzmanovic
-// Version: 1.0
-// Component call: <ProductTable />
-// Input parameters: no input parameters
-// Output: ProductTable component that displays the products in a table
-// *********************
-
 import { nanoid } from "nanoid";
 import { Link } from "react-router-dom";
 import { HiOutlinePencil } from "react-icons/hi";

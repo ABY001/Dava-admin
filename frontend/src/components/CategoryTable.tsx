@@ -1,13 +1,3 @@
-// *********************
-// Role of the component: The component that displays categories table on the admin category page
-// Name of the component: CategoryTable.tsx
-// Developer: Aleksandar Kuzmanovic
-// Version: 1.0
-// Component call: <CategoryTable />
-// Input parameters: No input parameters
-// Output: table with categories
-// *********************
-
 import { nanoid } from "nanoid";
 import { Link } from "react-router-dom";
 import { HiOutlinePencil } from "react-icons/hi";

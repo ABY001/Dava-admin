@@ -1,13 +1,3 @@
-// *********************
-// Role of the component: User table component that displays the user table with the user name, email address, role, last login date, and actions
-// Name of the component: UserTable.tsx
-// Developer: Aleksandar Kuzmanovic
-// Version: 1.0
-// Component call: <UserTable />
-// Input parameters: no input parameters
-// Output: UserTable component that displays the user table with the user name, email address, role, last login date, and actions
-// *********************
-
 import { nanoid } from "nanoid";
 import { Link } from "react-router-dom";
 import { HiOutlinePencil } from "react-icons/hi";

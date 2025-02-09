@@ -1,13 +1,3 @@
-// *********************
-// Role of the component: Login component that is displayed on the login page
-// Name of the component: LoginComponent.tsx
-// Developer: Aleksandar Kuzmanovic
-// Version: 1.0
-// Component call: <LoginComponent />
-// Input parameters: no input parameters
-// Output: Login component that contains input fields for email and password, and buttons for login with Google and GitHub
-// *********************
-
 // import { FaReact } from "react-icons/fa6";
 import {
   InputWithLabel,

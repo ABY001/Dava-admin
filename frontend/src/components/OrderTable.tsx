@@ -1,13 +1,3 @@
-// *********************
-// Role of the component: Order table component that displays the orders in a table
-// Name of the component: OrderTable.tsx
-// Developer: Aleksandar Kuzmanovic
-// Version: 1.0
-// Component call: <OrderTable />
-// Input parameters: no input parameters
-// Output: OrderTable component that displays the orders in a table
-// *********************
-
 import { nanoid } from "nanoid";
 import { Link } from "react-router-dom";
 import { HiOutlinePencil } from "react-icons/hi";

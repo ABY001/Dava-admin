@@ -338,47 +338,7 @@ export const orderAdminItems = [
     total: "$109",
     date:
       new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Demarcus Fahrenbach",
-      imageUrl: "/src/assets/random user 12.jpg",
-    },
-    status: "Completed",
-    total: "$531",
-    date:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Latoyia Longcrier",
-      imageUrl: "/src/assets/random user 13.jpg",
-    },
-    status: "Completed",
-    total: "$627",
-    date:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Dayle Blumreich",
-      imageUrl: "/src/assets/random user 14.jpg",
-    },
-    status: "Completed",
-    total: "$421",
-    date:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Elfrieda Rowberry",
-      imageUrl: "/src/assets/random user 15.jpg",
-    },
-    status: "Completed",
-    total: "$490",
-    date:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
+  }
 ];
 
 export const productAdminItems = [
@@ -599,77 +559,7 @@ export const reviewsAdminItems = [
     product: "Alcatel Pixi 4 (6) 3G",
     lastLogin:
       new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Siu Manak",
-      imageUrl: "/src/assets/random user 9.jpg",
-    },
-    rating: 5,
-    product: "Samsung Galaxy A12",
-    lastLogin:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Cruz Arciniegas",
-      imageUrl: "/src/assets/random user 10.jpg",
-    },
-    rating: 4,
-    product: "Poco X3 NFC",
-    lastLogin:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Ronnie Vondohlen",
-      imageUrl: "/src/assets/random user 11.jpg",
-    },
-    rating: 5,
-    product: "LG K42",
-    lastLogin:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Demarcus Fahrenbach",
-      imageUrl: "/src/assets/random user 12.jpg",
-    },
-    rating: 5,
-    product: "Huawei P40 Pro+",
-    lastLogin:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Latoyia Longcrier",
-      imageUrl: "/src/assets/random user 13.jpg",
-    },
-    rating: 4,
-    product: "Huaewi P40 Pro",
-    lastLogin:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Dayle Blumreich",
-      imageUrl: "/src/assets/random user 14.jpg",
-    },
-    rating: 5,
-    product: "OnePlus 8T",
-    lastLogin:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Elfrieda Rowberry",
-      imageUrl: "/src/assets/random user 15.jpg",
-    },
-    rating: 5,
-    product: "Samsung Galaxy A71 5G",
-    lastLogin:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
+  }
 ];
 
 export const userAdminItems = [
@@ -772,55 +662,5 @@ export const userAdminItems = [
     role: "user",
     lastLogin:
       new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Ronnie Vondohlen",
-      imageUrl: "/src/assets/random user 11.jpg",
-    },
-    email: "ronnie92@gmail.com",
-    role: "user",
-    lastLogin:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Demarcus Fahrenbach",
-      imageUrl: "/src/assets/random user 12.jpg",
-    },
-    email: "demarcus01@gmail.com",
-    role: "user",
-    lastLogin:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Latoyia Longcrier",
-      imageUrl: "/src/assets/random user 13.jpg",
-    },
-    email: "latoyial92@gmail.com",
-    role: "user",
-    lastLogin:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Dayle Blumreich",
-      imageUrl: "/src/assets/random user 14.jpg",
-    },
-    email: "dayleblumreich@gmail.com",
-    role: "user",
-    lastLogin:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Elfrieda Rowberry",
-      imageUrl: "/src/assets/random user 15.jpg",
-    },
-    email: "elfrieda02@gmail.com",
-    role: "user",
-    lastLogin:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
+  }
 ];
