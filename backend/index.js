@@ -21,6 +21,13 @@ mongoose.connect(process.env.MONGO_URI, {
 }).then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
 
+app.get("/", (req, res) => {
+  res.status(200)
+    .json({
+      status: 200,
+      message: "Yes, you just hit the right cord, keep going fam"
+    })
+})
 app.use("/auth", authRoutes);
 app.use("/products", productRoutes);
 app.use("/orders", orderRoutes);

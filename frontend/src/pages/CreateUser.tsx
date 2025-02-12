@@ -7,8 +7,36 @@ import {
 } from "../components";
 import SelectInput from "../components/SelectInput";
 import { roles } from "../utils/data";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { createUser } from "../store/userSlice";
 
 const CreateUser = () => {
+  const dispatch = useAppDispatch();
+  const { loading, error } = useAppSelector((state) => state.users);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    role: "user",
+    password: "",
+  });
+  const navigate = useNavigate();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    dispatch(createUser(formData)).then((res) => {
+      if (res.meta.requestStatus === "fulfilled") {
+        navigate("/users"); // Redirect after successful creation
+      }
+    });
+  }
+
   return (
     <div className="h-auto border-t border-blackSecondary border-1 flex dark:bg-blackPrimary bg-whiteSecondary">
       <Sidebar />
@@ -28,6 +56,8 @@ const CreateUser = () => {
                 width="48"
                 py="2"
                 text="Publish user"
+                loading={loading}
+                onClick={() => handleSubmit}
               >
                 <HiOutlineSave className="dark:text-blackPrimary text-whiteSecondary text-xl" />
               </WhiteButton>
@@ -42,37 +72,47 @@ const CreateUser = () => {
                 User information
               </h3>
 
+              {error && <p className="text-red-500">{error}</p>}
+
               <div className="mt-4 flex flex-col gap-5">
                 <InputWithLabel label="Name">
                   <SimpleInput
                     type="text"
+                    name="name"
                     placeholder="Enter a name..."
+                    onChange={handleChange}
                   />
                 </InputWithLabel>
 
                 <InputWithLabel label="Email">
                   <SimpleInput
-                    type="text"
+                    type="email"
+                    name="email"
                     placeholder="Enter a email ..."
+                    onChange={handleChange}
                   />
+                </InputWithLabel>
+
+                <InputWithLabel label="Select role">
+                  <SelectInput selectList={roles} />
                 </InputWithLabel>
 
                 <InputWithLabel label="Password">
                   <SimpleInput
                     type="password"
+                    name="password"
                     placeholder="Enter a password..."
+                    onChange={handleChange}
                   />
                 </InputWithLabel>
 
                 <InputWithLabel label="Confirm password">
                   <SimpleInput
                     type="password"
+                    name="confirmpassword"
                     placeholder="Enter a confirm password..."
+                    onChange={handleChange}
                   />
-                </InputWithLabel>
-
-                <InputWithLabel label="Select role">
-                  <SelectInput selectList={roles} />
                 </InputWithLabel>
               </div>
             </div>

@@ -3,11 +3,18 @@ import { Link } from "react-router-dom";
 import { HiOutlinePencil } from "react-icons/hi";
 import { HiOutlineTrash } from "react-icons/hi";
 import { HiOutlineEye } from "react-icons/hi";
-import { userAdminItems } from "../utils/data";
-
-
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { fetchUsers } from "../store/userSlice";
+import { useEffect } from "react";
 
 const UserTable = () => {
+  const dispatch = useAppDispatch();
+  const { users, loading, error } = useAppSelector((state) => state.users);
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
+
   return (
     <table className="mt-6 w-full whitespace-nowrap text-left max-lg:block max-lg:overflow-x-scroll">
       <colgroup>
@@ -17,6 +24,8 @@ const UserTable = () => {
         <col className="lg:w-1/12" />
         <col className="lg:w-1/12" />
       </colgroup>
+      {loading && <p>Loading...</p>}
+      {error && <p className="text-red-500">{error}</p>}
       <thead className="border-b border-white/10 text-sm leading-6 dark:text-whiteSecondary text-blackPrimary">
         <tr>
           <th
@@ -46,7 +55,7 @@ const UserTable = () => {
         </tr>
       </thead>
       <tbody className="divide-y divide-white/5">
-        {userAdminItems.map((item) => (
+        {users.map((item) => (
           <tr key={nanoid()}>
             <td className="py-4 pl-4 pr-8 sm:pl-6 lg:pl-8">
               <div className="flex items-center gap-x-4">
@@ -70,7 +79,7 @@ const UserTable = () => {
               </div>
             </td>
             <td className="py-4 pl-0 pr-8 text-sm leading-6 dark:text-whiteSecondary text-blackPrimary table-cell lg:pr-20">
-              {item.lastLogin}
+              {/* {item.created} */} -----
             </td>
             <td className="py-4 pl-0 pr-4 text-right text-sm leading-6 dark:text-whiteSecondary text-blackPrimary table-cell pr-6 lg:pr-8">
               <div className="flex gap-x-1 justify-end">

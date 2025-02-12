@@ -1,10 +1,5 @@
-import { HiLogin, HiUserGroup } from "react-icons/hi";
+import { HiLogin, HiUserGroup, HiOutlineCreditCard } from "react-icons/hi";
 import { HiOutlineDevicePhoneMobile } from "react-icons/hi2";
-// import { HiOutlineTag } from "react-icons/hi";
-// import { HiOutlineTruck } from "react-icons/hi";
-// import { HiOutlineStar } from "react-icons/hi";
-// import { HiOutlineInformationCircle } from "react-icons/hi";
-// import { HiOutlineChat } from "react-icons/hi";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { HiOutlineX } from "react-icons/hi";
 import { setSidebar } from "../features/dashboard/dashboardSlice";
@@ -38,36 +33,6 @@ const Sidebar = () => {
           onClick={() => dispatch(setSidebar())}
         />
         <div>
-          {/* <div
-            onClick={() => setIsLandingOpen(() => !isLandingOpen)}
-            className="block flex items-center self-stretch gap-4 py-4 px-6 dark:bg-blackPrimary dark:hover:bg-blackSecondary cursor-pointer max-xl:py-3 dark:text-whiteSecondary hover:bg-white text-blackPrimary bg-whiteSecondary"
-          >
-            <HiOutlineHome className="text-xl" />
-            <span className="text-lg">Landing pages</span>
-          </div>
-          {isLandingOpen && (
-            <div>
-              <NavLink
-                to="/"
-                className={(isActiveObj) =>
-                  isActiveObj.isActive ? navActiveClass : navInactiveClass
-                }
-              >
-                <HiOutlineHome className="text-xl" />
-                <span className="text-lg">Overview v1</span>
-              </NavLink>
-
-              <NavLink
-                to="/landing-v2"
-                className={(isActiveObj) =>
-                  isActiveObj.isActive ? navActiveClass : navInactiveClass
-                }
-              >
-                <HiOutlineHome className="text-xl" />
-                <span className="text-lg">Overview v2</span>
-              </NavLink>
-            </div>
-          )} */}
 
           <NavLink
             to="/products"
@@ -105,17 +70,17 @@ const Sidebar = () => {
             <HiOutlineUser className="text-xl" />
             <span className="text-lg">Users</span>
           </NavLink>
-          {/* <NavLink
-            to="/reviews"
+          <NavLink
+            to="/orders"
             className={(isActiveObj) =>
               isActiveObj.isActive ? navActiveClass : navInactiveClass
             }
           >
-            <HiOutlineStar className="text-xl" />
-            <span className="text-lg">Reviews</span>
-          </NavLink> */}
+            <HiOutlineCreditCard className="text-xl" />
+            <span className="text-lg">Orders</span>
+          </NavLink>
 
-          <div
+          {/* <div
             onClick={() => setIsAuthOpen(() => !isAuthOpen)}
             className="block flex items-center self-stretch gap-4 py-4 px-6 dark:bg-blackPrimary dark:hover:bg-blackSecondary cursor-pointer max-xl:py-3 dark:text-whiteSecondary hover:bg-white text-blackPrimary bg-whiteSecondary"
           >
@@ -143,20 +108,8 @@ const Sidebar = () => {
                 <span className="text-lg">Register</span>
               </NavLink>
             </div>
-          )}
+          )} */}
         </div>
-
-        {/* <div className="absolute bottom-0 border-1 border-t dark:border-blackSecondary border-blackSecondary w-full">
-          <NavLink
-            to="/help-desk"
-            className={(isActiveObj) =>
-              isActiveObj.isActive ? navActiveClass : navInactiveClass
-            }
-          >
-            <HiOutlineInformationCircle className="text-xl" />
-            <span className="text-lg">Help Desk</span>
-          </NavLink>
-        </div> */}
       </div>
     </div>
   );

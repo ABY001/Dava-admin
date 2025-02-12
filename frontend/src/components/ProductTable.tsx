@@ -3,16 +3,23 @@ import { Link } from "react-router-dom";
 import { HiOutlinePencil } from "react-icons/hi";
 import { HiOutlineTrash } from "react-icons/hi";
 import { HiOutlineEye } from "react-icons/hi";
-import { productAdminItems } from "../utils/data";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { fetchProducts } from "../store/productSlice";
 
 const inStockClass: string =
   "text-green-400 bg-green-400/10 flex-none rounded-full p-1";
 const outOfStockClass: string =
   "text-rose-400 bg-rose-400/10 flex-none rounded-full p-1";
 
-
-
 const ProductTable = () => {
+  const dispatch = useAppDispatch();
+  const { products, loading, error } = useAppSelector((state) => state.products);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
   return (
     <table className="mt-6 w-full whitespace-nowrap text-left max-lg:block max-lg:overflow-x-scroll">
       <colgroup>
@@ -22,6 +29,8 @@ const ProductTable = () => {
         <col className="lg:w-1/12" />
         <col className="lg:w-1/12" />
       </colgroup>
+      {loading && <p>Loading...</p>}
+      {error && <p className="text-red-500">{error}</p>}
       <thead className="border-b border-white/10 text-sm leading-6 dark:text-whiteSecondary text-blackPrimary">
         <tr>
           <th
@@ -48,15 +57,15 @@ const ProductTable = () => {
         </tr>
       </thead>
       <tbody className="divide-y divide-white/5">
-        {productAdminItems.map((item) => (
+        {products.map((item) => (
           <tr key={nanoid()}>
             <td className="py-4 pl-4 pr-8 sm:pl-6 lg:pl-8">
               <div className="flex items-center gap-x-4">
-                {/* <img
+                <img
                   src={item.imageUrl}
                   alt=""
                   className="h-8 w-8 rounded-full bg-gray-800"
-                /> */}
+                />
                 <div className="truncate text-sm font-medium leading-6 dark:text-whiteSecondary text-blackPrimary">
                   {item.name}
                 </div>

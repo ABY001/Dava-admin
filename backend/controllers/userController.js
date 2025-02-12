@@ -1,4 +1,5 @@
 import User from "../models/User.js";
+import bcrypt from "bcryptjs";
 
 export const getUsers = async (req, res) => {
   try {
@@ -21,11 +22,13 @@ export const getUser = async (req, res) => {
 
 export const createUser = async (req, res) => {
   try {
-    const user = new User(req.body);
-    await user.save();
-    res.status(201).json(user);
+    const { name, email, password, role } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = new User({ name, email, role, password: hashedPassword });
+    await newUser.save();
+    res.status(201).json({ newUser, message: "User registered successfully" });
   } catch (error) {
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ message: error.message });
   }
 };
 
