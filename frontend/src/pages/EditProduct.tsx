@@ -19,7 +19,7 @@ const EditProduct = () => {
     amazonLink: "#"
   });
 
-  const handleImageUpload = (imageUrl: string) => {
+  const handleImageUpload = () => {
     // setInputObject({ ...formData, imageUrl });
   };
 
