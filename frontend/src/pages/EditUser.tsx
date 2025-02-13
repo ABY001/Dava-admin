@@ -3,24 +3,45 @@ import {
   InputWithLabel,
   Sidebar,
   SimpleInput,
-  WhiteButton,
 } from "../components";
 import SelectInput from "../components/SelectInput";
 import { roles } from "../utils/data";
 import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { fetchUsers, updateUser } from "../store/userSlice";
+import CustomButton from "../components/CustomButton";
 
 const EditUser = () => {
-  const [inputObject, setInputObject] = useState({
-    name: "Brent",
-    email: "brentfesi@email.com",
-    password: "brentfesi123",
-    confirmPassword: "brentfesi123",
+  const { id, action } = useParams<{ id: string, action: string }>();
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const { loading, error } = useAppSelector((state) => state.users);
+  const user = useAppSelector((state) => state.users.users.find((user) => user._id === id));
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
     role: roles[0].value,
   });
 
   useEffect(() => {
-    console.log(inputObject);
-  }, [inputObject]);
+    if (user) {
+      setFormData({ name: user.name, email: user.email, role: user.role });
+    }
+  }, [user]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!id) return
+    await dispatch(updateUser({ id, ...formData }));
+    dispatch(fetchUsers())
+    navigate("/users");
+  };
 
   return (
     <div className="h-auto border-t border-blackSecondary border-1 flex dark:bg-blackPrimary bg-whiteSecondary">
@@ -33,18 +54,19 @@ const EditUser = () => {
                 Edit user
               </h2>
             </div>
-            <div className="flex gap-x-2 max-[370px]:flex-col max-[370px]:gap-2 max-[370px]:items-center">
-            
-              <WhiteButton
-                link="/users/create-user"
+            {error && <p className="text-red-500">{error}</p>}
+            {action === 'edit' && <div className="flex gap-x-2 max-[370px]:flex-col max-[370px]:gap-2 max-[370px]:items-center">
+              <CustomButton
                 textSize="lg"
                 width="48"
                 py="2"
                 text="Update user"
+                loading={loading}
+                onClick={(e) => handleSubmit(e)}
               >
                 <HiOutlineSave className="dark:text-blackPrimary text-whiteSecondary text-xl" />
-              </WhiteButton>
-            </div>
+              </CustomButton>
+            </div>}
           </div>
 
           {/* Add Product section here  */}
@@ -59,60 +81,32 @@ const EditUser = () => {
                 <InputWithLabel label="Name">
                   <SimpleInput
                     type="text"
+                    name="name"
+                    disabled={action !== 'edit'}
                     placeholder="Enter a name..."
-                    value={inputObject.name}
-                    onChange={(e) =>
-                      setInputObject({ ...inputObject, name: e.target.value })
-                    }
+                    value={formData.name}
+                    onChange={handleChange}
                   />
                 </InputWithLabel>
 
                 <InputWithLabel label="Email">
                   <SimpleInput
                     type="text"
+                    name="email"
+                    disabled={action !== 'edit'}
                     placeholder="Enter a email ..."
-                    value={inputObject.email}
-                    onChange={(e) =>
-                      setInputObject({ ...inputObject, email: e.target.value })
-                    }
-                  />
-                </InputWithLabel>
-
-                <InputWithLabel label="Password">
-                  <SimpleInput
-                    type="password"
-                    placeholder="Enter a password..."
-                    value={inputObject.password}
-                    onChange={(e) =>
-                      setInputObject({
-                        ...inputObject,
-                        password: e.target.value,
-                      })
-                    }
-                  />
-                </InputWithLabel>
-
-                <InputWithLabel label="Confirm password">
-                  <SimpleInput
-                    type="password"
-                    placeholder="Enter a confirm password..."
-                    value={inputObject.confirmPassword}
-                    onChange={(e) =>
-                      setInputObject({
-                        ...inputObject,
-                        confirmPassword: e.target.value,
-                      })
-                    }
+                    value={formData.email}
+                    onChange={handleChange}
                   />
                 </InputWithLabel>
 
                 <InputWithLabel label="Select role">
                   <SelectInput
+                    name="role"
+                    disabled={action !== 'edit'}
                     selectList={roles}
-                    value={inputObject.role}
-                    onChange={(e) =>
-                      setInputObject({ ...inputObject, role: e.target.value })
-                    }
+                    value={formData.role}
+                    onChange={handleChange}
                   />
                 </InputWithLabel>
               </div>

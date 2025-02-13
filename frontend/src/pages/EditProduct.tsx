@@ -11,7 +11,7 @@ import tab3 from "/src/assets/tablet (3).jpg";
 import tab4 from "/src/assets/tablet (4).jpg";
 
 const EditProduct = () => {
-  const [inputObject, setInputObject] = useState({
+  const [formData, setInputObject] = useState({
     name: "Samsung Galaxy Tab A7 Lite",
     price: "$80",
     stock: "50",
@@ -19,6 +19,9 @@ const EditProduct = () => {
     amazonLink: "#"
   });
 
+  const handleImageUpload = (imageUrl: string) => {
+    // setInputObject({ ...formData, imageUrl });
+  };
 
   return (
     <div className="h-auto border-t border-blackSecondary border-1 flex dark:bg-blackPrimary bg-whiteSecondary">
@@ -58,9 +61,9 @@ const EditProduct = () => {
                   <SimpleInput
                     type="text"
                     placeholder="Enter a product name..."
-                    value={inputObject.name}
+                    value={formData.name}
                     onChange={(e) =>
-                      setInputObject({ ...inputObject, name: e.target.value })
+                      setInputObject({ ...formData, name: e.target.value })
                     }
                   />
                 </InputWithLabel>
@@ -76,10 +79,10 @@ const EditProduct = () => {
                     <SimpleInput
                       type="text"
                       placeholder="Enter a price..."
-                      value={inputObject.price}
+                      value={formData.price}
                       onChange={(e) =>
                         setInputObject({
-                          ...inputObject,
+                          ...formData,
                           price: e.target.value,
                         })
                       }
@@ -89,10 +92,10 @@ const EditProduct = () => {
                     <SimpleInput
                       type="text"
                       placeholder="Enter a product stock..."
-                      value={inputObject.stock}
+                      value={formData.stock}
                       onChange={(e) =>
                         setInputObject({
-                          ...inputObject,
+                          ...formData,
                           stock: e.target.value,
                         })
                       }
@@ -103,10 +106,10 @@ const EditProduct = () => {
                 <InputWithLabel label="Stock status">
                   <SelectInput
                     selectList={stockStatusList}
-                    value={inputObject.stockStatus}
+                    value={formData.stockStatus}
                     onChange={(e) =>
                       setInputObject({
-                        ...inputObject,
+                        ...formData,
                         stockStatus: e.target.value,
                       })
                     }
@@ -123,9 +126,9 @@ const EditProduct = () => {
                   <SimpleInput
                     type="text"
                     placeholder="Enter the amazon order link..."
-                    value={inputObject.amazonLink}
+                    value={formData.amazonLink}
                     onChange={(e) =>
-                      setInputObject({ ...inputObject, name: e.target.value })
+                      setInputObject({ ...formData, name: e.target.value })
                     }
                   />
                 </InputWithLabel>
@@ -139,7 +142,7 @@ const EditProduct = () => {
                 Product images
               </h3>
 
-              <ImageUpload />
+              <ImageUpload onImageUpload={handleImageUpload} />
               <div className="flex justify-center gap-x-2 mt-5 flex-wrap">
                 <img src={tab1} alt='' className="w-36 h-32" />
                 <img src={tab2} alt="" className="w-36 h-32" />

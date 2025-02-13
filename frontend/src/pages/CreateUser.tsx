@@ -3,7 +3,6 @@ import {
   InputWithLabel,
   Sidebar,
   SimpleInput,
-  WhiteButton,
 } from "../components";
 import SelectInput from "../components/SelectInput";
 import { roles } from "../utils/data";
@@ -11,6 +10,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { createUser } from "../store/userSlice";
+import CustomButton from "../components/CustomButton";
 
 const CreateUser = () => {
   const dispatch = useAppDispatch();
@@ -49,18 +49,16 @@ const CreateUser = () => {
               </h2>
             </div>
             <div className="flex gap-x-2 max-[370px]:flex-col max-[370px]:gap-2 max-[370px]:items-center">
-
-              <WhiteButton
-                link="/users/create-user"
+              <CustomButton
                 textSize="lg"
                 width="48"
                 py="2"
                 text="Publish user"
                 loading={loading}
-                onClick={() => handleSubmit}
+                onClick={(e) => handleSubmit(e)}
               >
                 <HiOutlineSave className="dark:text-blackPrimary text-whiteSecondary text-xl" />
-              </WhiteButton>
+              </CustomButton>
             </div>
           </div>
 
@@ -94,7 +92,7 @@ const CreateUser = () => {
                 </InputWithLabel>
 
                 <InputWithLabel label="Select role">
-                  <SelectInput selectList={roles} />
+                  <SelectInput name="role" selectList={roles} onChange={handleChange} />
                 </InputWithLabel>
 
                 <InputWithLabel label="Password">
