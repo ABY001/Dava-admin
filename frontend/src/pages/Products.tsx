@@ -4,14 +4,18 @@ import { HiOutlineChevronRight } from "react-icons/hi";
 import { HiOutlineSearch } from "react-icons/hi";
 import { useAppSelector } from "../hooks";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Products = () => {
-  const { products } = useAppSelector((state) => state.products);
-
+  const { products, error } = useAppSelector((state) => state.products);
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredProducts, setFilteredProducts] = useState(products);
 
   useEffect(() => {
+    if (error === "Forbidden") {
+      navigate("/login");
+    }
     const filtered = products.filter((product) =>
       product.name.toLowerCase().includes(searchQuery.toLowerCase())
     );

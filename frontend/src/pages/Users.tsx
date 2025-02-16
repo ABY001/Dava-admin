@@ -12,15 +12,18 @@ import {
 } from "../components";
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../hooks";
-// import { AiOutlineExport } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 const Users = () => {
-  const { users } = useAppSelector((state) => state.users);
-
+  const { users, error } = useAppSelector((state) => state.users);
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredUsers, setFilteredUsers] = useState(users);
 
   useEffect(() => {
+    if (error === "Forbidden") {
+      navigate("/login");
+    }
     const filtered = users.filter((product) =>
       product.name.toLowerCase().includes(searchQuery.toLowerCase())
     );

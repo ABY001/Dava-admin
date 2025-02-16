@@ -32,9 +32,6 @@ export const fetchProducts = createAsyncThunk(
             const response = await api.get("products");
             return response.data;
         } catch (error: any) {
-            if (error.response?.status === 403) {
-                window.location.href = "/login"; // Redirect to login page
-            }
             return rejectWithValue(error.response?.data?.message || "Failed to fetch products");
         }
     }
