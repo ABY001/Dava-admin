@@ -4,12 +4,12 @@ import { HiOutlinePencil } from "react-icons/hi";
 import { HiOutlineTrash } from "react-icons/hi";
 import { HiOutlineEye } from "react-icons/hi";
 import { useAppDispatch, useAppSelector } from "../hooks";
-import { deleteUser, fetchUsers } from "../store/userSlice";
+import { deleteUser, fetchUsers, User } from "../store/userSlice";
 import { useEffect, useState } from "react";
 
-const UserTable = () => {
+const UserTable = ({ filteredUsers }: { filteredUsers: User[] }) => {
   const dispatch = useAppDispatch();
-  const { users, loading, error } = useAppSelector((state) => state.users);
+  const { loading, error } = useAppSelector((state) => state.users);
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
 
   const handleDeleteClick = (id: string) => {
@@ -68,7 +68,7 @@ const UserTable = () => {
           </tr>
         </thead>
         <tbody className="divide-y divide-white/5">
-          {users.map((item) => (
+          {filteredUsers.map((item) => (
             <tr key={nanoid()}>
               <td className="py-4 pl-4 pr-8 sm:pl-6 lg:pl-8">
                 <div className="flex items-center gap-x-4">

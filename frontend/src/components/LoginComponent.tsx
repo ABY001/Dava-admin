@@ -9,6 +9,7 @@ import logo from "/src/assets/Dava-logo.webp";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { loginUser } from "../store/authSlice";
 import CustomButton from "./CustomButton";
+import { toast } from "sonner";
 
 const LoginComponent = () => {
   const [email, setEmail] = useState("");
@@ -21,6 +22,7 @@ const LoginComponent = () => {
     e.preventDefault();
     const result = await dispatch(loginUser({ email, password }));
     if (loginUser.fulfilled.match(result)) {
+      toast.success("Admin logged in successfully");
       navigate("/");
     } else {
       console.log('error', error);
@@ -28,7 +30,7 @@ const LoginComponent = () => {
   };
 
   return (
-    <div className="w-[500px] h-[450px] dark:bg-gray-900 bg-white flex flex-col justify-between items-center py-10 max-sm:w-[400px] max-[420px]:w-[320px] max-sm:h-[750px]">
+    <div className="w-[500px] h-[450px] dark:bg-gray-900 bg-white flex flex-col justify-between items-center py-10 max-sm:w-[400px] max-[420px]:w-[320px] max-sm:h-[350px]">
       <div className="flex flex-col items-center gap-10 w-full px-6">
         <img src={logo} className="w-[8rem]" />
         <div className="w-full flex flex-col gap-5">

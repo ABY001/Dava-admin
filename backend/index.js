@@ -11,6 +11,9 @@ import multer from "multer";
 import streamifier from "streamifier";
 import { v2 as cloudinary } from 'cloudinary'
 
+dotenv.config();
+const app = express();
+const PORT = process.env.PORT || 5000;
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -20,10 +23,6 @@ cloudinary.config({
 
 // Use Multer Memory Storage
 const upload = multer({ storage: multer.memoryStorage() });
-
-dotenv.config();
-const app = express();
-const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -42,7 +41,7 @@ app.post('/photos/upload', upload.single('photo'), (req, res) => {
 
     // Upload to Cloudinary using a stream
     const uploadStream = cloudinary.uploader.upload_stream(
-      { folder: 'uploads' }, // Specify the folder in Cloudinary
+      { folder: 'product-images' }, // Specify the folder in Cloudinary
       (error, result) => {
         if (error) {
           console.error('Cloudinary Upload Error:', error);

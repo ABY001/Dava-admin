@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { createUser } from "../store/userSlice";
 import CustomButton from "../components/CustomButton";
+import { toast } from "sonner";
 
 const CreateUser = () => {
   const dispatch = useAppDispatch();
@@ -32,13 +33,14 @@ const CreateUser = () => {
     e.preventDefault();
     dispatch(createUser(formData)).then((res) => {
       if (res.meta.requestStatus === "fulfilled") {
+        toast.success("User created successfully");
         navigate("/users"); // Redirect after successful creation
       }
     });
   }
 
   return (
-    <div className="h-auto border-t border-blackSecondary border-1 flex dark:bg-blackPrimary bg-whiteSecondary">
+    <div className="h-screen border-t border-blackSecondary border-1 flex dark:bg-blackPrimary bg-whiteSecondary">
       <Sidebar />
       <div className="dark:bg-blackPrimary bg-whiteSecondary w-full ">
         <div className="dark:bg-blackPrimary bg-whiteSecondary py-10">

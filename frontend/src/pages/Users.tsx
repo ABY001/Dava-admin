@@ -10,11 +10,25 @@ import {
   UserTable,
   WhiteButton,
 } from "../components";
+import { useEffect, useState } from "react";
+import { useAppSelector } from "../hooks";
 // import { AiOutlineExport } from "react-icons/ai";
 
 const Users = () => {
+  const { users } = useAppSelector((state) => state.users);
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredUsers, setFilteredUsers] = useState(users);
+
+  useEffect(() => {
+    const filtered = users.filter((product) =>
+      product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setFilteredUsers(filtered);
+  }, [searchQuery, users]);
+
   return (
-    <div className="h-auto border-t border-blackSecondary border-1 flex dark:bg-blackPrimary bg-whiteSecondary">
+    <div className="h-screen border-t border-blackSecondary border-1 flex dark:bg-blackPrimary bg-whiteSecondary">
       <Sidebar />
       <div className="dark:bg-blackPrimary bg-whiteSecondary w-full ">
         <div className="dark:bg-blackPrimary bg-whiteSecondary py-10">
@@ -29,8 +43,18 @@ const Users = () => {
                 <span>All users</span>
               </p>
             </div>
+          </div>
+          <div className="px-4 sm:px-6 lg:px-8 flex justify-between items-center mt-5 max-sm:flex-col max-sm:gap-2">
+            <div className="relative">
+              <HiOutlineSearch className="text-gray-400 text-lg absolute top-3 left-3" />
+              <input
+                type="text"
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-60 h-10 border dark:bg-blackPrimary bg-white border-gray-600 dark:text-whiteSecondary text-blackPrimary outline-0 indent-10 dark:focus:border-gray-500 focus:border-gray-400"
+                placeholder="Search users..."
+              />
+            </div>
             <div className="flex gap-x-2 max-[370px]:flex-col max-[370px]:gap-2 max-[370px]:items-center">
-        
               <WhiteButton
                 link="/users/create-user"
                 text="Add a user"
@@ -42,30 +66,7 @@ const Users = () => {
               </WhiteButton>
             </div>
           </div>
-          <div className="px-4 sm:px-6 lg:px-8 flex justify-between items-center mt-5 max-sm:flex-col max-sm:gap-2">
-            <div className="relative">
-              <HiOutlineSearch className="text-gray-400 text-lg absolute top-3 left-3" />
-              <input
-                type="text"
-                className="w-60 h-10 border dark:bg-blackPrimary bg-white border-gray-600 dark:text-whiteSecondary text-blackPrimary outline-0 indent-10 dark:focus:border-gray-500 focus:border-gray-400"
-                placeholder="Search users..."
-              />
-            </div>
-            <div>
-              <select
-                className="w-60 h-10 dark:bg-blackPrimary bg-whiteSecondary border border-gray-600 dark:text-whiteSecondary text-blackPrimary outline-0 pl-3 pr-8 cursor-pointer dark:hover:border-gray-500 hover:border-gray-400"
-                name="sort"
-                id="sort"
-              >
-                <option value="default">Sort by</option>
-                <option value="az">A-Z</option>
-                <option value="za">Z-A</option>
-                <option value="newest">Newest</option>
-                <option value="oldest">Oldest</option>
-              </select>
-            </div>
-          </div>
-          <UserTable />
+          <UserTable filteredUsers={filteredUsers} />
           <div className="flex justify-between items-center px-4 sm:px-6 lg:px-8 py-6 max-sm:flex-col gap-4 max-sm:pt-6 max-sm:pb-0">
             <RowsPerPage />
             <Pagination />

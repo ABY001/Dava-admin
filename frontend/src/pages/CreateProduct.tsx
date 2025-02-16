@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from "../hooks";
 import { useState } from "react";
 import { createProduct } from "../store/productSlice";
 import CustomButton from "../components/CustomButton";
+import { toast } from "sonner";
 
 const CreateProduct = () => {
   const dispatch = useAppDispatch();
@@ -17,7 +18,7 @@ const CreateProduct = () => {
     name: "",
     price: 0,
     stock: 0,
-    status: "",
+    status: "in-stock",
     imageUrl: "",
     amazonLink: "",
     ocadoLink: "",
@@ -36,11 +37,12 @@ const CreateProduct = () => {
     e.preventDefault();
 
     if (!formData.imageUrl) {
-      alert("Please upload an image before submitting.");
+      toast.success("Please upload an image before submitting.");
       return;
     }
 
     dispatch(createProduct(formData)).then((res) => {
+      toast.success("Product created successfully");
       if (res.meta.requestStatus === "fulfilled") {
         navigate("/products"); // Redirect after successful creation
       }
@@ -48,7 +50,7 @@ const CreateProduct = () => {
   }
 
   return (
-    <div className="h-auto border-t border-blackSecondary border-1 flex dark:bg-blackPrimary bg-whiteSecondary">
+    <div className="h-screen border-t border-blackSecondary border-1 flex dark:bg-blackPrimary bg-whiteSecondary">
       <Sidebar />
       <div className="dark:bg-blackPrimary bg-whiteSecondary w-full ">
         <div className="dark:bg-blackPrimary bg-whiteSecondary py-10">
@@ -118,7 +120,7 @@ const CreateProduct = () => {
                 </div>
 
                 <InputWithLabel label="Stock status">
-                  <SelectInput name="status" selectList={stockStatusList} />
+                  <SelectInput name="status" selectList={stockStatusList} onChange={handleChange} />
                 </InputWithLabel>
               </div>
 

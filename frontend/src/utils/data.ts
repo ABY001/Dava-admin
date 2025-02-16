@@ -241,26 +241,6 @@ export const orderAdminItems = [
   },
   {
     user: {
-      name: "Benito Nickley",
-      imageUrl: "/src/assets/random user 2.jpg",
-    },
-    status: "Processing",
-    total: "$210",
-    date:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Lesley Ghouse",
-      imageUrl: "/src/assets/random user 3.jpg",
-    },
-    status: "Processing",
-    total: "$350",
-    date:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
       name: "Cherie Kros",
       imageUrl: "/src/assets/random user 4.jpg",
     },
@@ -281,16 +261,6 @@ export const orderAdminItems = [
   },
   {
     user: {
-      name: "Assunta Aimes",
-      imageUrl: "/src/assets/random user 6.jpg",
-    },
-    status: "Processing",
-    total: "$13",
-    date:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
       name: "Pearle Yousef",
       imageUrl: "/src/assets/random user 7.jpg",
     },
@@ -299,46 +269,6 @@ export const orderAdminItems = [
     date:
       new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
   },
-  {
-    user: {
-      name: "Latoyia Fiscus",
-      imageUrl: "/src/assets/random user 8.jpg",
-    },
-    status: "Completed",
-    total: "$178",
-    date:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Siu Manak",
-      imageUrl: "/src/assets/random user 9.jpg",
-    },
-    status: "On hold",
-    total: "$312",
-    date:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Cruz Arciniegas",
-      imageUrl: "/src/assets/random user 10.jpg",
-    },
-    status: "Cancelled",
-    total: "$158",
-    date:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  },
-  {
-    user: {
-      name: "Ronnie Vondohlen",
-      imageUrl: "/src/assets/random user 11.jpg",
-    },
-    status: "Completed",
-    total: "$109",
-    date:
-      new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-  }
 ];
 
 export const productAdminItems = [

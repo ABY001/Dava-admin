@@ -14,7 +14,7 @@ import {
 
 const Reviews = () => {
   return (
-    <div className="h-auto border-t border-blackSecondary border-1 flex dark:bg-blackPrimary bg-whiteSecondary">
+    <div className="h-screen border-t border-blackSecondary border-1 flex dark:bg-blackPrimary bg-whiteSecondary">
       <Sidebar />
       <div className="dark:bg-blackPrimary bg-whiteSecondary w-full ">
         <div className="dark:bg-blackPrimary bg-whiteSecondary py-10">

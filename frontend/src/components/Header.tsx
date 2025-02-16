@@ -4,8 +4,7 @@ import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
 import { HiOutlineMenu } from "react-icons/hi";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { setSidebar } from "../features/dashboard/dashboardSlice";
-import { Link } from "react-router-dom";
-import SearchInput from "./SearchInput";
+import { Link, useNavigate } from "react-router-dom";
 import { toggleDarkMode } from "../features/darkMode/darkModeSlice";
 import logo from "/src/assets/Dava-logo.webp";
 import { BiLogOut, BiUser } from "react-icons/bi";
@@ -15,11 +14,17 @@ import { logoutUser } from "../store/authSlice";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const { darkMode } = useAppSelector((state) => state.darkMode);
+
+  const goToProfile = () => {
+    setIsOpen(!isOpen)
+    navigate("/profile")
+  }
 
   return (
     <header className="dark:bg-blackPrimary bg-whiteSecondary relative">
-      <div className="flex justify-between items-center px-9 py-5 max-xl:flex-col max-xl:gap-y-7 max-[400px]:px-4">
+      <div className="flex justify-between items-center px-9 py-5 max-xl:gap-y-7 max-[400px]:px-4">
         <HiOutlineMenu
           className="text-2xl dark:text-whiteSecondary text-blackPrimary absolute bottom-7 left-5 xl:hidden max-sm:static max-sm:order-1 cursor-pointer"
           onClick={() => dispatch(setSidebar())}
@@ -29,7 +34,7 @@ const Header = () => {
 
           <img src={logo} className="w-[5rem] cursor-pointer" />
         </Link>
-        <SearchInput />
+        {/* <SearchInput /> */}
         <div className="flex gap-4 items-center max-xl:justify-center">
           {/* <span className="dark:text-whiteSecondary text-blackPrimary">EN</span> */}
           {darkMode ? (
@@ -62,14 +67,14 @@ const Header = () => {
             {isOpen && (
               <div className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg z-50">
                 <ul className="py-2">
-                  <li>
-                    <Link
-                      to="/profile"
-                      className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
+                  {/* <li>
+                    <button
+                      onClick={() => goToProfile()}
+                      className="flex items-center w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
                     >
                       <BiUser className="w-4 h-4 mr-2" /> Profile
-                    </Link>
-                  </li>
+                    </button>
+                  </li> */}
                   <li>
                     <button
                       onClick={() => dispatch(logoutUser())}

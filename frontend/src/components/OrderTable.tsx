@@ -1,11 +1,5 @@
 import { nanoid } from "nanoid";
-import { Link } from "react-router-dom";
-import { HiOutlinePencil } from "react-icons/hi";
-import { HiOutlineTrash } from "react-icons/hi";
-import { HiOutlineEye } from "react-icons/hi";
 import { orderAdminItems } from "../utils/data";
-
-
 
 const OrderTable = () => {
   return (
@@ -37,12 +31,12 @@ const OrderTable = () => {
           >
             Date
           </th>
-          <th
+          {/* <th
             scope="col"
             className="py-2 pl-0 pr-4 text-right font-semibold table-cell sm:pr-6 lg:pr-8"
           >
             Actions
-          </th>
+          </th> */}
         </tr>
       </thead>
       <tbody className="divide-y divide-white/5">
@@ -50,11 +44,6 @@ const OrderTable = () => {
           <tr key={nanoid()}>
             <td className="py-4 pl-4 pr-8 sm:pl-6 lg:pl-8">
               <div className="flex items-center gap-x-4">
-                <img
-                  src={item.user.imageUrl}
-                  alt=""
-                  className="h-8 w-8 rounded-full bg-gray-800"
-                />
                 <div className="truncate text-sm font-medium leading-6 dark:text-whiteSecondary text-blackPrimary">
                   {item.user.name}
                 </div>
@@ -91,7 +80,7 @@ const OrderTable = () => {
             <td className="py-4 pl-0 pr-8 text-sm leading-6 dark:text-whiteSecondary text-blackPrimary table-cell lg:pr-20">
               {item.date}
             </td>
-            <td className="py-4 pl-0 pr-4 text-right text-sm leading-6 dark:text-whiteSecondary text-blackPrimary table-cell pr-6 lg:pr-8">
+            {/* <td className="py-4 pl-0 pr-4 text-right text-sm leading-6 dark:text-whiteSecondary text-blackPrimary table-cell pr-6 lg:pr-8">
               <div className="flex gap-x-1 justify-end">
                 <Link
                   to="/orders/1"
@@ -112,7 +101,7 @@ const OrderTable = () => {
                   <HiOutlineTrash className="text-lg" />
                 </Link>
               </div>
-            </td>
+            </td> */}
           </tr>
         ))}
       </tbody>

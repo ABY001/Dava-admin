@@ -11,6 +11,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { fetchUsers, updateUser } from "../store/userSlice";
 import CustomButton from "../components/CustomButton";
+import { toast } from "sonner";
 
 const EditUser = () => {
   const { id, action } = useParams<{ id: string, action: string }>();
@@ -39,20 +40,21 @@ const EditUser = () => {
     e.preventDefault();
     if (!id) return
     await dispatch(updateUser({ id, ...formData }));
+    toast.success("User edited successfully");
     dispatch(fetchUsers())
     navigate("/users");
   };
 
   return (
-    <div className="h-auto border-t border-blackSecondary border-1 flex dark:bg-blackPrimary bg-whiteSecondary">
+    <div className="h-screen border-t border-blackSecondary border-1 flex dark:bg-blackPrimary bg-whiteSecondary">
       <Sidebar />
       <div className="dark:bg-blackPrimary bg-whiteSecondary w-full ">
         <div className="dark:bg-blackPrimary bg-whiteSecondary py-10">
           <div className="px-4 sm:px-6 lg:px-8 pb-8 border-b border-gray-800 flex justify-between items-center max-sm:flex-col max-sm:gap-5">
             <div className="flex flex-col gap-3">
-              <h2 className="text-3xl font-bold leading-7 dark:text-whiteSecondary text-blackPrimary">
-                Edit user
-              </h2>
+              {action && <h2 className="text-3xl font-bold leading-7 dark:text-whiteSecondary text-blackPrimary">
+                {action.charAt(0).toUpperCase() + action.slice(1)} user
+              </h2>}
             </div>
             {error && <p className="text-red-500">{error}</p>}
             {action === 'edit' && <div className="flex gap-x-2 max-[370px]:flex-col max-[370px]:gap-2 max-[370px]:items-center">
@@ -78,6 +80,14 @@ const EditUser = () => {
               </h3>
 
               <div className="mt-4 flex flex-col gap-5">
+                {action !== 'edit' && <InputWithLabel label="Id">
+                  <SimpleInput
+                    type="text"
+                    disabled={true}
+                    value={user?._id}
+                  />
+                </InputWithLabel>}
+
                 <InputWithLabel label="Name">
                   <SimpleInput
                     type="text"
@@ -103,7 +113,7 @@ const EditUser = () => {
                 <InputWithLabel label="Select role">
                   <SelectInput
                     name="role"
-                    disabled={action !== 'edit'}
+                    disabled
                     selectList={roles}
                     value={formData.role}
                     onChange={handleChange}

@@ -9,13 +9,13 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onImageUpload }) => {
   const [image, setImage] = useState<string | null>(null);
   const [uploading, setUploading] = useState<boolean>(false);
 
-  const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {    
     const file = event.target.files?.[0];
     if (!file) return;
 
     setUploading(true);
     const formData = new FormData();
-    formData.append("file", file);
+    formData.append("photo", file);
 
     try {
       const response = await api.post<{ imageUrl: string }>("/photos/upload", formData, {
@@ -36,7 +36,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onImageUpload }) => {
     <div className="flex items-center justify-center w-full mt-5">
       <label
         htmlFor="dropzone-file"
-        className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-700 border-dashed rounded-lg cursor-pointer bg-whiteSecondary hover:border-gray-500"
+        className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-700 border-dashed rounded-lg cursor-pointer dark:bg-blackPrimary bg-whiteSecondary  dark:hover:border-gray-600 hover:border-gray-500"
       >
         {uploading ? (
           <p className="text-sm text-gray-500">Uploading...</p>

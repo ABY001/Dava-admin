@@ -6,6 +6,7 @@ import {
   EditUser,
   HomeLayout,
   Login,
+  Orders,
   Products,
   Profile,
   Register,
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
             element: <CreateProduct />,
           },
           {
-            path: "/products/:id",
+            path: "/products/:id/:action",
             element: <EditProduct />,
           },
           {
@@ -58,7 +59,7 @@ const router = createBrowserRouter([
           },
           {
             path: "/orders",
-            element: <Users />,
+            element: <Orders />,
           },
           {
             path: "/profile",

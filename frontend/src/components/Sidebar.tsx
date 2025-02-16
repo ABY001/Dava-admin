@@ -33,6 +33,7 @@ const Sidebar = () => {
 
           <NavLink
             to="/products"
+            onClick={() => dispatch(setSidebar())}
             className={(isActiveObj) =>
               isActiveObj.isActive ? navActiveClass : navInactiveClass
             }
@@ -40,26 +41,9 @@ const Sidebar = () => {
             <HiOutlineDevicePhoneMobile className="text-xl" />
             <span className="text-lg">Products</span>
           </NavLink>
-          {/* <NavLink
-            to="/categories"
-            className={(isActiveObj) =>
-              isActiveObj.isActive ? navActiveClass : navInactiveClass
-            }
-          >
-            <HiOutlineTag className="text-xl" />
-            <span className="text-lg">Categories</span>
-          </NavLink> */}
-          {/* <NavLink
-            to="/orders"
-            className={(isActiveObj) =>
-              isActiveObj.isActive ? navActiveClass : navInactiveClass
-            }
-          >
-            <HiOutlineTruck className="text-xl" />
-            <span className="text-lg">Orders</span>
-          </NavLink> */}
           <NavLink
             to="/users"
+            onClick={() => dispatch(setSidebar())}
             className={(isActiveObj) =>
               isActiveObj.isActive ? navActiveClass : navInactiveClass
             }
@@ -69,6 +53,7 @@ const Sidebar = () => {
           </NavLink>
           <NavLink
             to="/orders"
+            onClick={() => dispatch(setSidebar())}
             className={(isActiveObj) =>
               isActiveObj.isActive ? navActiveClass : navInactiveClass
             }
@@ -76,36 +61,6 @@ const Sidebar = () => {
             <HiOutlineCreditCard className="text-xl" />
             <span className="text-lg">Orders</span>
           </NavLink>
-
-          {/* <div
-            onClick={() => setIsAuthOpen(() => !isAuthOpen)}
-            className="block flex items-center self-stretch gap-4 py-4 px-6 dark:bg-blackPrimary dark:hover:bg-blackSecondary cursor-pointer max-xl:py-3 dark:text-whiteSecondary hover:bg-white text-blackPrimary bg-whiteSecondary"
-          >
-            <HiUserGroup className="text-xl" />
-            <span className="text-lg">Auth</span>
-          </div>
-          {isAuthOpen && (
-            <div>
-              <NavLink
-                to="/login"
-                className={(isActiveObj) =>
-                  isActiveObj.isActive ? navActiveClass : navInactiveClass
-                }
-              >
-                <HiLogin className="text-xl" />
-                <span className="text-lg">Login</span>
-              </NavLink>
-              <NavLink
-                to="/register"
-                className={(isActiveObj) =>
-                  isActiveObj.isActive ? navActiveClass : navInactiveClass
-                }
-              >
-                <HiUserGroup className="text-xl" />
-                <span className="text-lg">Register</span>
-              </NavLink>
-            </div>
-          )} */}
         </div>
       </div>
     </div>

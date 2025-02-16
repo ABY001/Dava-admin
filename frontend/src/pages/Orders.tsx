@@ -1,14 +1,11 @@
 
 import { OrderTable, Pagination, RowsPerPage, Sidebar } from "../components";
-import { HiOutlinePlus } from "react-icons/hi";
 import { HiOutlineChevronRight } from "react-icons/hi";
-// import { AiOutlineExport } from "react-icons/ai";
 import { HiOutlineSearch } from "react-icons/hi";
-import { Link } from "react-router-dom";
 
 const Orders = () => {
   return (
-    <div className="h-auto border-t border-blackSecondary border-1 flex dark:bg-blackPrimary bg-whiteSecondary">
+    <div className="h-screen border-t border-blackSecondary border-1 flex dark:bg-blackPrimary bg-whiteSecondary">
       <Sidebar />
       <div className="dark:bg-blackPrimary bg-whiteSecondary w-full ">
         <div className="dark:bg-blackPrimary bg-whiteSecondary py-10">
@@ -23,15 +20,6 @@ const Orders = () => {
                 <span>All orders</span>
               </p>
             </div>
-            <div className="flex gap-x-2 max-[370px]:flex-col max-[370px]:gap-2 max-[370px]:items-center">
-           
-              <Link to="/orders/create-order" className="dark:bg-whiteSecondary bg-blackPrimary w-48 py-2 text-lg dark:hover:bg-white hover:bg-blackSecondary duration-200 flex items-center justify-center gap-x-1">
-                <HiOutlinePlus className="dark:text-blackPrimary text-whiteSecondary" />
-                <span className="dark:text-blackPrimary text-whiteSecondary font-semibold">
-                  Add an order
-                </span>
-              </Link>
-            </div>
           </div>
           <div className="px-4 sm:px-6 lg:px-8 flex justify-between items-center mt-5 max-sm:flex-col max-sm:gap-2">
             <div className="relative">
@@ -41,19 +29,6 @@ const Orders = () => {
                 className="w-60 h-10 border dark:bg-blackPrimary bg-white border-gray-600 dark:text-whiteSecondary text-blackPrimary outline-0 indent-10 dark:focus:border-gray-500 focus:border-gray-400"
                 placeholder="Search orders..."
               />
-            </div>
-            <div>
-              <select
-                className="w-60 h-10 dark:bg-blackPrimary bg-whiteSecondary border border-gray-600 dark:text-whiteSecondary text-blackPrimary outline-0 pl-3 pr-8 cursor-pointer dark:hover:border-gray-500 hover:border-gray-400"
-                name="sort"
-                id="sort"
-              >
-                <option value="default">Sort by</option>
-                <option value="az">A-Z</option>
-                <option value="za">Z-A</option>
-                <option value="newest">Newest</option>
-                <option value="oldest">Oldest</option>
-              </select>
             </div>
           </div>
           <OrderTable />

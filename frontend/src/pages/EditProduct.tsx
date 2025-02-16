@@ -1,51 +1,81 @@
 import { ImageUpload, InputWithLabel, Sidebar } from "../components";
 import { HiOutlineSave } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import SimpleInput from "../components/SimpleInput";
 import SelectInput from "../components/SelectInput";
 import { stockStatusList } from "../utils/data";
-import { useState } from "react";
-import tab1 from "/src/assets/tablet (1).jpg";
-import tab2 from "/src/assets/tablet (2).jpg";
-import tab3 from "/src/assets/tablet (3).jpg";
-import tab4 from "/src/assets/tablet (4).jpg";
+import { useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { toast } from "sonner";
+import { fetchProducts, updateProduct } from "../store/productSlice";
+import CustomButton from "../components/CustomButton";
 
 const EditProduct = () => {
-  const [formData, setInputObject] = useState({
-    name: "Samsung Galaxy Tab A7 Lite",
-    price: "$80",
-    stock: "50",
-    stockStatus: stockStatusList[0].value,
-    amazonLink: "#"
+  const { id, action } = useParams<{ id: string, action: string }>();
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const { loading, error } = useAppSelector((state) => state.products);
+  const product = useAppSelector((state) => state.products.products.find((product) => product._id === id));
+
+  const [formData, setFormData] = useState({
+    name: "",
+    price: 0,
+    stock: 0,
+    status: "",
+    imageUrl: "",
+    amazonLink: "",
+    ocadoLink: ""
   });
 
-  const handleImageUpload = () => {
-    // setInputObject({ ...formData, imageUrl });
+  useEffect(() => {
+    if (product) {
+      setFormData({ name: product.name, price: product.price, stock: product.stock, amazonLink: product.amazonLink, ocadoLink: product.ocadoLink, status: product.status, imageUrl: product.imageUrl });
+    }
+  }, [product]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    console.log('dddd', e.target);
+
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!id) return
+    await dispatch(updateProduct({ id, ...formData }));
+    toast.success("Product edited successfully");
+    dispatch(fetchProducts())
+    navigate("/products");
+  };
+
+  const handleImageUpload = (imageUrl: string) => {
+    setFormData({ ...formData, imageUrl });
   };
 
   return (
-    <div className="h-auto border-t border-blackSecondary border-1 flex dark:bg-blackPrimary bg-whiteSecondary">
+    <div className="h-screen border-t border-blackSecondary border-1 flex dark:bg-blackPrimary bg-whiteSecondary">
       <Sidebar />
       <div className="dark:bg-blackPrimary bg-whiteSecondary w-full ">
         <div className="dark:bg-blackPrimary bg-whiteSecondary py-10">
           <div className="px-4 sm:px-6 lg:px-8 pb-8 border-b border-gray-800 flex justify-between items-center max-sm:flex-col max-sm:gap-5">
             <div className="flex flex-col gap-3">
-              <h2 className="text-3xl font-bold leading-7 dark:text-whiteSecondary text-blackPrimary">
-                Edit product
-              </h2>
+              {action && <h2 className="text-3xl font-bold leading-7 dark:text-whiteSecondary text-blackPrimary">
+                {action.charAt(0).toUpperCase() + action.slice(1)} product
+              </h2>}
             </div>
-            <div className="flex gap-x-2 max-[370px]:flex-col max-[370px]:gap-2 max-[370px]:items-center">
-
-              <Link
-                to="/products/add-product"
-                className="dark:bg-whiteSecondary bg-blackPrimary w-48 py-2 text-lg dark:hover:bg-white hover:bg-blackSecondary duration-200 flex items-center justify-center gap-x-2"
+            {error && <p className="text-red-500">{error}</p>}
+            {action === 'edit' && <div className="flex gap-x-2 max-[370px]:flex-col max-[370px]:gap-2 max-[370px]:items-center">
+              <CustomButton
+                textSize="lg"
+                width="48"
+                py="2"
+                text="Update product"
+                loading={loading}
+                onClick={(e) => handleSubmit(e)}
               >
                 <HiOutlineSave className="dark:text-blackPrimary text-whiteSecondary text-xl" />
-                <span className="dark:text-blackPrimary text-whiteSecondary font-semibold">
-                  Update product
-                </span>
-              </Link>
-            </div>
+              </CustomButton>
+            </div>}
           </div>
 
           {/* Add Product section here  */}
@@ -57,14 +87,22 @@ const EditProduct = () => {
               </h3>
 
               <div className="mt-4 flex flex-col gap-5">
+                {action !== 'edit' && <InputWithLabel label="Id">
+                  <SimpleInput
+                    type="text"
+                    disabled={true}
+                    value={product?._id}
+                  />
+                </InputWithLabel>}
+
                 <InputWithLabel label="Name">
                   <SimpleInput
                     type="text"
+                    name="name"
+                    disabled={action !== 'edit'}
                     placeholder="Enter a product name..."
                     value={formData.name}
-                    onChange={(e) =>
-                      setInputObject({ ...formData, name: e.target.value })
-                    }
+                    onChange={handleChange}
                   />
                 </InputWithLabel>
               </div>
@@ -77,42 +115,33 @@ const EditProduct = () => {
                 <div className="grid grid-cols-2 gap-x-5 max-[500px]:grid-cols-1 max-[500px]:gap-x-0 max-[500px]:gap-y-5">
                   <InputWithLabel label="Price">
                     <SimpleInput
-                      type="text"
+                      type="number"
+                      name="price"
+                      disabled={action !== 'edit'}
                       placeholder="Enter a price..."
                       value={formData.price}
-                      onChange={(e) =>
-                        setInputObject({
-                          ...formData,
-                          price: e.target.value,
-                        })
-                      }
+                      onChange={handleChange}
                     />
                   </InputWithLabel>
                   <InputWithLabel label="Stock">
                     <SimpleInput
-                      type="text"
+                      type="number"
+                      name="stock"
+                      disabled={action !== 'edit'}
                       placeholder="Enter a product stock..."
                       value={formData.stock}
-                      onChange={(e) =>
-                        setInputObject({
-                          ...formData,
-                          stock: e.target.value,
-                        })
-                      }
+                      onChange={handleChange}
                     />
                   </InputWithLabel>
                 </div>
 
                 <InputWithLabel label="Stock status">
                   <SelectInput
+                    name="status"
+                    disabled={action !== 'edit'}
                     selectList={stockStatusList}
-                    value={formData.stockStatus}
-                    onChange={(e) =>
-                      setInputObject({
-                        ...formData,
-                        stockStatus: e.target.value,
-                      })
-                    }
+                    value={formData.status}
+                    onChange={handleChange}
                   />
                 </InputWithLabel>
               </div>
@@ -122,14 +151,24 @@ const EditProduct = () => {
               </h3>
 
               <div className="mt-4 flex flex-col gap-5">
-                <InputWithLabel label="Name">
+                <InputWithLabel label="Amazon">
                   <SimpleInput
                     type="text"
+                    name="amazonLink"
+                    disabled={action !== 'edit'}
                     placeholder="Enter the amazon order link..."
                     value={formData.amazonLink}
-                    onChange={(e) =>
-                      setInputObject({ ...formData, name: e.target.value })
-                    }
+                    onChange={handleChange}
+                  />
+                </InputWithLabel>
+                <InputWithLabel label="Ocado">
+                  <SimpleInput
+                    type="text"
+                    name="ocadoLink"
+                    disabled={action !== 'edit'}
+                    placeholder="Enter the ocado order link..."
+                    value={formData.ocadoLink}
+                    onChange={handleChange}
                   />
                 </InputWithLabel>
               </div>
@@ -139,15 +178,12 @@ const EditProduct = () => {
             {/* right div */}
             <div>
               <h3 className="text-2xl font-bold leading-7 dark:text-whiteSecondary text-blackPrimary">
-                Product images
+                Product image
               </h3>
 
-              <ImageUpload onImageUpload={handleImageUpload} />
-              <div className="flex justify-center gap-x-2 mt-5 flex-wrap">
-                <img src={tab1} alt='' className="w-36 h-32" />
-                <img src={tab2} alt="" className="w-36 h-32" />
-                <img src={tab3} alt='' className="w-36 h-32" />
-                <img src={tab4} alt="" className="w-36 h-32" />
+              {action === 'edit' && <ImageUpload onImageUpload={handleImageUpload} />}
+              <div className="flex justify-start gap-x-2 mt-5 flex-wrap">
+                <img src={product?.imageUrl} alt='' className="w-36 h-32" />
               </div>
             </div>
           </div>
