@@ -21,7 +21,7 @@ const Users = () => {
   const [filteredUsers, setFilteredUsers] = useState(users);
 
   useEffect(() => {
-    if (error === "Forbidden") {
+    if (error === "Invalid token") {
       navigate("/login");
     }
     const filtered = users.filter((product) =>

@@ -18,7 +18,7 @@ const authMiddleware = (req, res, next) => {
         req.user = decoded; // Attach user details to request object
         next(); // Proceed to next middleware or route
     } catch (error) {
-        return res.status(403).json({ message: "Invalid token. Please log in" });
+        return res.status(403).json({ message: "Invalid token" });
     }
 };
 
