@@ -4,23 +4,23 @@ import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
 import { HiOutlineMenu } from "react-icons/hi";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { setSidebar } from "../features/dashboard/dashboardSlice";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { toggleDarkMode } from "../features/darkMode/darkModeSlice";
 import logo from "/src/assets/Dava-logo.webp";
-import { BiLogOut, BiUser } from "react-icons/bi";
+import { BiLogOut } from "react-icons/bi";
 import { useState } from "react";
 import { logoutUser } from "../store/authSlice";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { darkMode } = useAppSelector((state) => state.darkMode);
 
-  const goToProfile = () => {
-    setIsOpen(!isOpen)
-    navigate("/profile")
-  }
+  // const goToProfile = () => {
+  //   setIsOpen(!isOpen)
+  //   navigate("/profile")
+  // }
 
   return (
     <header className="dark:bg-blackPrimary bg-whiteSecondary relative">
