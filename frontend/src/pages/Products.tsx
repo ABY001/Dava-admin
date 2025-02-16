@@ -14,13 +14,15 @@ const Products = () => {
 
   useEffect(() => {
     if (error === "Invalid token") {
+      console.log('fffffffff');
+      
       navigate("/login");
     }
     const filtered = products.filter((product) =>
       product.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setFilteredProducts(filtered);
-  }, [searchQuery, products]);
+  }, [searchQuery, products, error, navigate]);
 
   return (
     <div className="h-screen border-t dark:border-blackSecondary border-blackSecondary border-1 flex dark:bg-blackPrimary bg-whiteSecondary">
