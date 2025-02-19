@@ -30,7 +30,7 @@ const LoginComponent = () => {
   };
 
   return (
-    <div className="w-[500px] h-[450px] dark:bg-gray-900 bg-white flex flex-col justify-between items-center py-10 max-sm:w-[400px] max-[420px]:w-[320px] max-sm:h-[350px]">
+    <div className="w-[500px] h-[450px] dark:bg-gray-900 bg-white flex flex-col justify-between items-center py-10 max-sm:w-[400px] max-[420px]:w-[320px] max-sm:h-[400px]">
       <div className="flex flex-col items-center gap-10 w-full px-6">
         <img src={logo} className="w-[8rem]" />
         <div className="w-full flex flex-col gap-5">

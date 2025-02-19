@@ -14,8 +14,6 @@ const Products = () => {
 
   useEffect(() => {
     if (error === "Invalid token") {
-      console.log('fffffffff');
-      
       navigate("/login");
     }
     const filtered = products.filter((product) =>
