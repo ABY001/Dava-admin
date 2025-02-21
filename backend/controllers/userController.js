@@ -33,10 +33,8 @@ export const createUser = async (req, res) => {
 };
 
 export const updateUser = async (req, res) => {
-  try {  console.log('dddd', req.body);
+  try {
     const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    console.log('user', user);
-    
     if (!user) return res.status(404).json({ error: "User not found" });
     res.status(201).json({ user, message: "User updated successfully" });
   } catch (error) {
