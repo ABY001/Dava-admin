@@ -25,7 +25,7 @@ const Users = () => {
       navigate("/login");
     }
     const filtered = users.filter((product) =>
-      product.name.toLowerCase().includes(searchQuery.toLowerCase())
+      product.name?.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setFilteredUsers(filtered);
   }, [searchQuery, users, error, navigate]);

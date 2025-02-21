@@ -51,6 +51,9 @@ const UserTable = ({ filteredUsers }: { filteredUsers: User[] }) => {
               Email address
             </th>
             <th scope="col" className="py-2 pl-0 pr-8 font-semibold table-cell">
+             Phone Number
+            </th>
+            <th scope="col" className="py-2 pl-0 pr-8 font-semibold table-cell">
               Role
             </th>
             <th
@@ -81,6 +84,13 @@ const UserTable = ({ filteredUsers }: { filteredUsers: User[] }) => {
                 <div className="flex gap-x-3">
                   <div className="text-sm leading-6 py-1 dark:text-whiteSecondary text-blackPrimary">
                     {item.email}
+                  </div>
+                </div>
+              </td>
+              <td className="py-4 pl-0 pr-4 table-cell pr-8">
+                <div className="flex gap-x-3">
+                  <div className="text-sm leading-6 py-1 dark:text-whiteSecondary text-blackPrimary">
+                    {item.phonenumber}
                   </div>
                 </div>
               </td>

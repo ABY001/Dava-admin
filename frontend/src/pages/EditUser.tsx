@@ -24,11 +24,12 @@ const EditUser = () => {
     name: "",
     email: "",
     role: roles[0].value,
+    phonenumber: ""
   });
 
   useEffect(() => {
     if (user) {
-      setFormData({ name: user.name, email: user.email, role: user.role });
+      setFormData({ name: user.name, email: user.email, role: user.role, phonenumber: user.phonenumber });
     }
   }, [user]);
 
@@ -106,6 +107,17 @@ const EditUser = () => {
                     disabled={action !== 'edit'}
                     placeholder="Enter a email ..."
                     value={formData.email}
+                    onChange={handleChange}
+                  />
+                </InputWithLabel>
+
+                <InputWithLabel label="Phone Number">
+                  <SimpleInput
+                    type="number"
+                    name="phonenumber"
+                    disabled={action !== 'edit'}
+                    placeholder="Enter your phonenumber..."
+                    value={formData.phonenumber || ""}
                     onChange={handleChange}
                   />
                 </InputWithLabel>

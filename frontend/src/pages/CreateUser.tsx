@@ -22,6 +22,7 @@ const CreateUser = () => {
     email: "",
     role: "user",
     password: "",
+    phonenumber: ""
   });
   const navigate = useNavigate();
 
@@ -89,6 +90,15 @@ const CreateUser = () => {
                     type="email"
                     name="email"
                     placeholder="Enter a email ..."
+                    onChange={handleChange}
+                  />
+                </InputWithLabel>
+
+                <InputWithLabel label="Phone Number">
+                  <SimpleInput
+                    type="number"
+                    name="phonenumber"
+                    placeholder="Enter your phonenumber ..."
                     onChange={handleChange}
                   />
                 </InputWithLabel>

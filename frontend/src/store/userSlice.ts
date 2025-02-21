@@ -5,6 +5,7 @@ export interface User {
     _id: string;
     name: string;
     email: string;
+    phonenumber: string;
     role: string;
     createdAt?: string;
     updatedAt?: string;
@@ -31,7 +32,7 @@ export const fetchUsers = createAsyncThunk("users/fetch", async () => {
 // Create User
 export const createUser = createAsyncThunk(
     "users/create",
-    async (userData: { name: string; email: string; role: string }, { rejectWithValue }) => {
+    async (userData: { name: string; email: string; phonenumber: string, role: string }, { rejectWithValue }) => {
         try {
             const response = await api.post("/users", userData);
             return response.data;
@@ -44,8 +45,8 @@ export const createUser = createAsyncThunk(
 // Update User
 export const updateUser = createAsyncThunk(
     "users/update",
-    async ({ id, name, email }: { id: string; name: string; email: string }) => {
-        const response = await api.put(`/users/${id}`, { name, email });
+    async ({ id, name, email, phonenumber }: { id: string; name: string; email: string; phonenumber: string }) => {
+        const response = await api.put(`/users/${id}`, { name, email, phonenumber });
         return response.data;
     }
 );

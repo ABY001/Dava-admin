@@ -22,9 +22,9 @@ export const getUser = async (req, res) => {
 
 export const createUser = async (req, res) => {
   try {
-    const { name, email, password, role } = req.body;
+    const { name, email, password, phonenumber, role } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ name, email, role, password: hashedPassword });
+    const newUser = new User({ name, email, role, phonenumber, password: hashedPassword });
     await newUser.save();
     res.status(201).json({ newUser, message: "User registered successfully" });
   } catch (error) {
@@ -33,8 +33,10 @@ export const createUser = async (req, res) => {
 };
 
 export const updateUser = async (req, res) => {
-  try {
+  try {  console.log('dddd', req.body);
     const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    console.log('user', user);
+    
     if (!user) return res.status(404).json({ error: "User not found" });
     res.status(201).json({ user, message: "User updated successfully" });
   } catch (error) {
