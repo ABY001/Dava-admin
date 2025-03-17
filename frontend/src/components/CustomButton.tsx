@@ -5,6 +5,7 @@ const CustomButton = ({
   textSize,
   children,
   loading,
+  disabled = false,
   onClick,
 }: {
   text: string;
@@ -13,10 +14,12 @@ const CustomButton = ({
   textSize: string;
   children?: React.ReactNode;
   loading?: boolean;
+  disabled?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }) => {
   return (
     <button
+      disabled={disabled}
       onClick={onClick}
       className={`dark:bg-whiteSecondary bg-blackPrimary w-${width} py-${py} text-${textSize} dark:hover:bg-white hover:bg-gray-800 bg-blackPrimary duration-200 flex items-center justify-center gap-x-2`}
     >

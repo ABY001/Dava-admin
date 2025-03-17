@@ -33,6 +33,15 @@ mongoose.connect(process.env.MONGO_URI, {
 }).then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
 
+// Video Schema
+const VideoSchema = new mongoose.Schema({
+  videoUrl: String,
+  publicId: String,
+  uploadedAt: { type: Date, default: Date.now },
+});
+
+const Video = mongoose.model("Video", VideoSchema);
+
 app.post('/photos/upload', upload.single('photo'), (req, res) => {
   try {
     if (!req.file) {
@@ -57,6 +66,64 @@ app.post('/photos/upload', upload.single('photo'), (req, res) => {
   } catch (error) {
     console.error('Error:', error);
     res.status(500).send(error.message);
+  }
+});
+
+
+app.post('/videos/upload', upload.single('video'), (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: 'Please upload a video', msg: 'No file received' });
+    }
+
+    // Upload to Cloudinary using a stream
+    const uploadStream = cloudinary.uploader.upload_stream(
+      { resource_type: "video", folder: "product-videos" },
+      async (error, result) => {
+        if (error) return res.status(500).json({ error: "Cloudinary Upload Failed" });
+
+        // Remove existing video (only one video should be active)
+        await Video.deleteMany();
+
+        const newVideo = new Video({ videoUrl: result.secure_url, publicId: result.public_id });
+        await newVideo.save();
+
+        res.json({ videoUrl: result.secure_url, videoId: newVideo._id });
+      }
+    );
+
+    // Convert buffer to stream and pipe to Cloudinary
+    streamifier.createReadStream(req.file.buffer).pipe(uploadStream);
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).send(error.message);
+  }
+});
+
+// **Get Latest Video (Client)**
+app.get("/videos/latest", async (req, res) => {
+  try {
+    const video = await Video.findOne().sort({ uploadedAt: -1 });
+    if (!video) return res.status(404).json({ error: "No video found" });
+
+    res.json({ videoUrl: video.videoUrl });
+  } catch (error) {
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
+// **Delete Video (Admin)**
+app.delete("/videos/:id", async (req, res) => {
+  try {
+    const video = await Video.findById(req.params.id);
+    if (!video) return res.status(404).json({ error: "Video not found" });
+
+    await cloudinary.uploader.destroy(video.publicId, { resource_type: "video" });
+    await Video.findByIdAndDelete(req.params.id);
+
+    res.json({ message: "Video deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: "Server error" });
   }
 });
 

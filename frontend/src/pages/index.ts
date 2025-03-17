@@ -1,6 +1,7 @@
 export { default as HomeLayout } from "./HomeLayout";
 export { default as Products } from "./Products";
 export { default as Orders } from "./Orders";
+export { default as Asset } from "./Asset";
 export { default as Users } from "./Users";
 export { default as Reviews } from "./Reviews";
 export { default as CreateProduct } from "./CreateProduct";

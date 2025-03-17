@@ -1,4 +1,4 @@
-import { HiOutlineCreditCard } from "react-icons/hi";
+import { HiOutlineCreditCard, HiBriefcase } from "react-icons/hi";
 import { HiOutlineDevicePhoneMobile } from "react-icons/hi2";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { HiOutlineX } from "react-icons/hi";
@@ -60,6 +60,16 @@ const Sidebar = () => {
           >
             <HiOutlineCreditCard className="text-xl" />
             <span className="text-lg">Orders</span>
+          </NavLink>
+          <NavLink
+            to="/asset-management"
+            onClick={() => dispatch(setSidebar())}
+            className={(isActiveObj) =>
+              isActiveObj.isActive ? navActiveClass : navInactiveClass
+            }
+          >
+            <HiBriefcase className="text-xl" />
+            <span className="text-lg">Assets</span>
           </NavLink>
         </div>
       </div>

@@ -13,6 +13,7 @@ import {
   Users,
 } from "./pages";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Assets from "./pages/Asset";
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
           {
             path: "/orders",
             element: <Orders />,
+          },
+          {
+            path: "/asset-management",
+            element: <Assets />,
           },
           {
             path: "/profile",

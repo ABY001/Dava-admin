@@ -12,6 +12,7 @@ import { useState } from "react";
 import { logoutUser } from "../store/authSlice";
 
 const Header = () => {
+  const user: any = JSON.parse(localStorage.getItem("user") || "{}");
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useAppDispatch();
   // const navigate = useNavigate();
@@ -55,10 +56,7 @@ const Header = () => {
               <div className="flex gap-2 items-center">
                 <div className="flex flex-col">
                   <p className="dark:text-whiteSecondary text-blackPrimary text-base max-xl:text-sm">
-                    Abiola Fadipe
-                  </p>
-                  <p className="dark:text-whiteSecondary text-blackPrimary text-sm max-xl:text-xs">
-                    Admin
+                    {user?.name}
                   </p>
                 </div>
               </div>
