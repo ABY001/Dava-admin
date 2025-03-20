@@ -18,7 +18,7 @@ const Sidebar = () => {
   const navActiveClass: string =
     "block bg-whiteSecondary flex items-center self-stretch gap-4 py-4 px-6 cursor-pointer max-xl:py-3 text-blackPrimary bg-white";
   const navInactiveClass: string =
-    "block flex items-center self-stretch gap-4 py-4 px-6 bg-blackPrimary hover:bg-blackSecondary cursor-pointer max-xl:py-3 text-whiteSecondary hover:bg-white";
+    "block flex items-center self-stretch gap-4 py-4 px-6 bg-blackPrimary hover:bg-blackSecondary cursor-pointer max-xl:py-3 text-whiteSecondary";
 
   return (
     <div className="relative">
