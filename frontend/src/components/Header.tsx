@@ -1,11 +1,11 @@
 // import { FaReact } from "react-icons/fa6";
-import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
+// import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
 // import { HiOutlineBell } from "react-icons/hi";
 import { HiOutlineMenu } from "react-icons/hi";
-import { useAppDispatch, useAppSelector } from "../hooks";
+import { useAppDispatch } from "../hooks";
 import { setSidebar } from "../features/dashboard/dashboardSlice";
 import { Link } from "react-router-dom";
-import { toggleDarkMode } from "../features/darkMode/darkModeSlice";
+// import { toggleDarkMode } from "../features/darkMode/darkModeSlice";
 import logo from "/src/assets/Dava-logo.webp";
 import { BiLogOut } from "react-icons/bi";
 import { useState } from "react";
@@ -16,7 +16,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useAppDispatch();
   // const navigate = useNavigate();
-  const { darkMode } = useAppSelector((state) => state.darkMode);
+  // const { darkMode } = useAppSelector((state) => state.darkMode);
 
   // const goToProfile = () => {
   //   setIsOpen(!isOpen)
@@ -38,7 +38,7 @@ const Header = () => {
         {/* <SearchInput /> */}
         <div className="flex gap-4 items-center max-xl:justify-center">
           {/* <span className="dark:text-whiteSecondary text-blackPrimary">EN</span> */}
-          {darkMode ? (
+          {/* {darkMode ? (
             <HiOutlineSun
               onClick={() => dispatch(toggleDarkMode())}
               className="text-xl dark:text-whiteSecondary text-blackPrimary cursor-pointer"
@@ -48,7 +48,7 @@ const Header = () => {
               onClick={() => dispatch(toggleDarkMode())}
               className="text-xl dark:text-whiteSecondary text-blackPrimary cursor-pointer"
             />
-          )}
+          )} */}
 
           <div className="relative">
             <button

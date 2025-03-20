@@ -5,9 +5,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        blackPrimary: "#030712",
+        blackPrimary: "#000",
         blackSecondary: "rgba(48, 48, 48, 0.90)",
-        whiteSecondary: "#F0F0F0",
+        whiteSecondary: "#fff",
       },
       boxShadow: {
         "custom-white": "0px 4px 10px 0px rgba(255, 255, 255, 0.90)",

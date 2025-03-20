@@ -16,17 +16,17 @@ const Sidebar = () => {
     : "sidebar-closed";
 
   const navActiveClass: string =
-    "block dark:bg-whiteSecondary flex items-center self-stretch gap-4 py-4 px-6 cursor-pointer max-xl:py-3 dark:text-blackPrimary bg-white text-blackPrimary";
+    "block bg-whiteSecondary flex items-center self-stretch gap-4 py-4 px-6 cursor-pointer max-xl:py-3 text-blackPrimary bg-white";
   const navInactiveClass: string =
-    "block flex items-center self-stretch gap-4 py-4 px-6 dark:bg-blackPrimary dark:hover:bg-blackSecondary cursor-pointer max-xl:py-3 dark:text-whiteSecondary hover:bg-white text-blackPrimary bg-whiteSecondary";
+    "block flex items-center self-stretch gap-4 py-4 px-6 bg-blackPrimary hover:bg-blackSecondary cursor-pointer max-xl:py-3 text-whiteSecondary hover:bg-white";
 
   return (
     <div className="relative">
       <div
-        className={`w-72 h-[100vh] dark:bg-blackPrimary bg-whiteSecondary pt-6 xl:sticky xl:top-0 xl:z-10 max-xl:fixed max-xl:top-0 max-xl:z-10 xl:translate-x-0 ${sidebarClass}`}
+        className={`w-50 h-[100vh] bg-blackPrimary pt-6 xl:sticky xl:top-0 xl:z-10 max-xl:fixed max-xl:top-0 max-xl:z-10 xl:translate-x-0 ${sidebarClass}`}
       >
         <HiOutlineX
-          className="dark:text-whiteSecondary text-blackPrimary text-2xl ml-auto mb-2 mr-2 cursor-pointer xl:py-3"
+          className="text-whiteSecondary text-2xl ml-auto mb-2 mr-2 cursor-pointer xl:py-3"
           onClick={() => dispatch(setSidebar())}
         />
         <div>

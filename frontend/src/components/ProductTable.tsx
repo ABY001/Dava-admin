@@ -44,7 +44,7 @@ const ProductTable =  ({ filteredProducts }: { filteredProducts: Product[] }) =>
         </colgroup>
         {loading && <p>Loading...</p>}
         {error && <p className="text-red-500">{error}</p>}
-        <thead className="border-b border-white/10 text-sm leading-6 dark:text-whiteSecondary text-blackPrimary">
+        <thead className="border-b border-black/10 text-sm leading-6 dark:text-whiteSecondary text-blackPrimary">
           <tr>
             <th
               scope="col"

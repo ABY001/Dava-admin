@@ -25,7 +25,7 @@ const LoginComponent = () => {
       toast.success("Admin logged in successfully");
       navigate("/");
     } else {
-      console.log('error', error);
+      alert(error)
     }
   };
 
@@ -50,7 +50,7 @@ const LoginComponent = () => {
           width="full"
           py="2"
           text="Login now"
-          loading={loading}  
+          loading={loading}
           onClick={(e) => handleLogin(e)}
         />
       </div>

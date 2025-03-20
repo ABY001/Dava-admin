@@ -11,7 +11,7 @@ const OrderTable = () => {
         <col className="lg:w-1/12" />
         <col className="lg:w-1/12" />
       </colgroup>
-      <thead className="border-b border-white/10 text-sm leading-6 dark:text-whiteSecondary text-blackPrimary">
+      <thead className="border-b border-black/10 text-sm leading-6 dark:text-whiteSecondary text-blackPrimary">
         <tr>
           <th
             scope="col"

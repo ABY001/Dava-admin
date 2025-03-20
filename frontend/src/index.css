@@ -25,3 +25,7 @@ body{
   .ql-snow .ql-picker-label::before {
     color: #F0F0F0;
   }
+
+  .w-50 {
+    width: 12rem;
+  }
